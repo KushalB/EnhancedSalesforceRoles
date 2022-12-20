@@ -1,18 +1,21 @@
-# Salesforce DX Project: Next Steps
+# Enhanced Salesforce Roles
 
-Now that you’ve created a Salesforce DX project, what’s next? Here are some documentation resources to get you started.
+For large organisation where there are more than 1000 user roles configured, it is quite painfull as a Saleforce developer or admin to get a holistic view of the Role Heirarchy easily.
+Since the expand all feature doesn't work for orgs having more than 1000 roles, we have to select and expand each roles one by one. There is no out of the box feature or readily available 
+hack that can help in the situation
 
-## How Do You Plan to Deploy Your Changes?
+## Thus, Introducing Enhanced Salesforce Role
 
-Do you want to deploy a set of changes, or create a self-contained application? Choose a [development model](https://developer.salesforce.com/tools/vscode/en/user-guide/development-models).
+Salesforce Enhanced Role is a lightweight tool written on Apex, that is extremely helpful in a situation where we need to quickly get a birdeye view of the Role hierarchy of an org.
+This tool creates the XML equivalent of the Role hierarchy and saves as a document in the org that can be downloaded, reviewed and analysed quite easily.
 
-## Configure Your Salesforce DX Project
+## Disclaimer
 
-The `sfdx-project.json` file contains useful configuration information for your project. See [Salesforce DX Project Configuration](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_ws_config.htm) in the _Salesforce DX Developer Guide_ for details about this file.
+- The Salesforce Enhanced Role tool comes with a single Apex class consisting several helper functions. 
+- Each of the functions are self explanatory along with additional comments.
+- I will encourage you to review the code so that you feel confident on whether this will mess anything up on the org that you're going to use it.
 
-## Read All About It
+## Quickstart
 
-- [Salesforce Extensions Documentation](https://developer.salesforce.com/tools/vscode/)
-- [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
-- [Salesforce DX Developer Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_intro.htm)
-- [Salesforce CLI Command Reference](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference/cli_reference.htm)
+- Once the code is deployed to your org, you can simply invoke the entry function 
+by calling UserRoleExportException.run() function. The snippet can be found [here]/apex/runRoleManager.apex

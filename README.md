@@ -22,7 +22,7 @@ by calling UserRoleExportHelper.run() function. The snippet can be found [here](
 
 ## How to install
 
-<a href="https://githubsfdeploy.herokuapp.com?owner=KushalB&repo=EnhancedSalesforceRoles">
+<a href="https://githubsfdeploy.herokuapp.com?owner=KushalB&repo=EnhancedSalesforceRoles" target="blank">>
   <img alt="Deploy to Salesforce"
        src="https://raw.githubusercontent.com/afawcett/githubsfdeploy/master/deploy.png">
 </a>

@@ -19,3 +19,8 @@ This tool creates the XML equivalent of the Role hierarchy and saves as a docume
 
 - Once the code is deployed to your org, you can simply invoke the entry function 
 by calling UserRoleExportException.run() function. The snippet can be found [here](https://github.com/KushalB/EnhancedSalesforceRoles/blob/master/scripts/apex/runRoleManager.apex)
+
+## How to install
+
+- You can deploy it to your org directly by the following Link.
+- [Deploy to org](https://githubsfdeploy.herokuapp.com/?owner=KushalB&repo=EnhancedSalesforceRoles)

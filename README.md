@@ -22,5 +22,8 @@ by calling UserRoleExportException.run() function. The snippet can be found [her
 
 ## How to install
 
-- You can deploy it to your org directly by the following Link.
-- [Deploy to org](https://githubsfdeploy.herokuapp.com/?owner=KushalB&repo=EnhancedSalesforceRoles)
+<a href="https://githubsfdeploy.herokuapp.com?owner=KushalB&repo=EnhancedSalesforceRoles">
+  <img alt="Deploy to Salesforce"
+       src="https://raw.githubusercontent.com/afawcett/githubsfdeploy/master/deploy.png">
+</a>
+

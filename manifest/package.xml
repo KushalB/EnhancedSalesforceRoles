@@ -4,4 +4,8 @@
         <members>UserRoleExportHelper</members>
         <name>ApexClass</name>
     </types>
+    <types>
+        <members>unfiled$public/EnhancedEmailRole_Success</members>
+        <name>EmailTemplate</name>
+    </types>
 </Package>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Email Template for Successful Role Extract Generation</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>EnhancedEmailRole Success</name>
+    <style>none</style>
+    <subject>Salesforce Role Extract Successfully generated</subject>
+    <textOnly>Hi UserFirstName,
+
+Your Roles Extract request is successfully processed and the report is ready to be downloaded.
+
+fileDownloadLink
+
+This email is generated system generated. For any concerns kindly email to useremail.
+
+The file and the email is generated as part of the &quot;Enhanced Salesforce Role Package&quot;. Find more here at repourl.</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

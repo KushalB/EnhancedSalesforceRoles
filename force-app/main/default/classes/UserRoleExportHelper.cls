@@ -100,15 +100,15 @@ public with sharing class UserRoleExportHelper {
             String[] toAddresses = new String[] {UserInfo.getUserEmail()};
             mail.setToAddresses(toAddresses);
             mail.setSenderDisplayName('Enhanced Salesforce Role Engine');
-            String fileDownloadUrl = URL.getSalesforceBaseUrl().toExternalForm()+'servlet/servlet.FileDownload?file='+fileDoc.id;
-            EmailTemplate emlTmplt = [SELECT id FROM EmailTemplate WHERE DeveloperName='EnhancedEmailRole_Success' limit 1];
-            mail.setTemplateId(emlTmplt.id);
-            String emailHtmlBody = mail.getHtmlBody();
+            String fileDownloadUrl = URL.getSalesforceBaseUrl().toExternalForm()+'/servlet/servlet.FileDownload?file='+fileDoc.id;
+            EmailTemplate emlTmplt = [SELECT id,HtmlValue,Body,Subject FROM EmailTemplate WHERE DeveloperName='EnhancedEmailRole_Success' limit 1];
+            String emailHtmlBody = emlTmplt.HtmlValue;
             emailHtmlBody = addMergeFieldInfo(emailHtmlBody,fileDownloadUrl);
-            String emailTextBody = mail.getPlainTextBody();
+            String emailTextBody = emlTmplt.body;
             emailTextBody = addMergeFieldInfo(emailTextBody,fileDownloadUrl);
             mail.setHtmlBody(emailHtmlBody);
             mail.setPlainTextBody(emailTextBody);
+            mail.setSubject(emlTmplt.Subject);
             Messaging.sendEmail(new Messaging.SingleEmailMessage[]{mail});
         }
     }

@@ -2,7 +2,7 @@
  * @description       : 
  * @author            : kushal.basu@salesforce.com
  * @group             : 
- * @last modified on  : 12-20-2022
+ * @last modified on  : 12-30-2022
  * @last modified by  : kushalbasu2@gmail.com
 **/
 public with sharing class UserRoleExportHelper {
@@ -11,6 +11,12 @@ public with sharing class UserRoleExportHelper {
     id rootRoleId;
     Dom.Document doc; 
     Dom.XmlNode rootNode;
+    Document fileDoc;
+
+    static final string userfirstname = UserInfo.getFirstName();
+    static final string useremail = UserInfo.getUserEmail();
+    static final String repoUrl = 'https://github.com/KushalB/EnhancedSalesforceRoles';
+
     /**
     * @description To initialise the variables.
     * @author kushalbasu2@gmail.com | 12-19-2022 
@@ -81,10 +87,37 @@ public with sharing class UserRoleExportHelper {
     public void generateRoleXMlDocument(){
         if(doc!=null){
             String xmlStr = doc.toXmlString();
-            insert createDocument('Roles.xml',xmlStr);
+            fileDoc = createDocument('Roles.xml',xmlStr);
+            insert fileDoc;
+            sendFileToEmail();
         }else{
             throw new UserRoleExportException('Doc is null!');
         }
+    }
+    private void sendFileToEmail(){
+        if(this.fileDoc!=null){
+            Messaging.SingleEmailMessage mail = new Messaging.SingleEmailMessage();
+            String[] toAddresses = new String[] {UserInfo.getUserEmail()};
+            mail.setToAddresses(toAddresses);
+            mail.setSenderDisplayName('Enhanced Salesforce Role Engine');
+            mail.setSubject('Enhanced Salesforce Role Report Created');
+            String fileDownloadUrl = URL.getSalesforceBaseUrl().toExternalForm()+'servlet/servlet.FileDownload?file='+fileDoc.id;
+            mail.setTemplateId('00X7F000000qeZs');
+            String emailHtmlBody = mail.getHtmlBody();
+            emailHtmlBody = addMergeFieldInfo(emailHtmlBody,fileDownloadUrl);
+            String emailTextBody = mail.getPlainTextBody();
+            emailTextBody = addMergeFieldInfo(emailTextBody,fileDownloadUrl);
+            mail.setHtmlBody(emailHtmlBody);
+            mail.setPlainTextBody(emailTextBody);
+            Messaging.sendEmail(new Messaging.SingleEmailMessage[]{mail});
+        }
+    }
+    private String addMergeFieldInfo(String emailBody,String downloadLink){
+        emailBody = emailBody.replaceAll('UserFirstName',userfirstname);
+        emailBody = emailBody.replaceAll('fileDownloadLink',downloadLink);
+        emailBody = emailBody.replaceAll('useremail',useremail);
+        emailBody = emailBody.replaceAll('repourl', repoUrl);
+        return emailBody;
     }
     /**
     * @description To generate and store Role Hierarchy as JSON Document

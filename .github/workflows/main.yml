@@ -2,9 +2,13 @@ name: test-github-actions
 run-name: ${{ github.actor }} is testing Github Actions
 on: push
 jobs: 
-  checkversion:
+  install_sfdx:
     runs-on: macos-latest
     steps:
       - run: curl -o sfdx.pkg 'https://developer.salesforce.com/media/salesforce-cli/sfdx/channels/stable/sfdx.pkg'
       - run: sudo installer -pkg sfdx.pkg -target /
       - run: sfdx --version
+      - uses: actions/checkout@v3
+      - run: ls
+      - run: sfdx auth:jwt:grant -u {{ secrets.USERNAME }} -i {{ secrets.CONSUMER_KEY }} -r {{ secrets.INSTANCEURL }} -a kushaldev -f {{ secrets.CONSUMER_SECRET }}
+      - run: sfdx force:source:retrieve -x ./manifest/package.xml

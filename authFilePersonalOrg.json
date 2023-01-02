@@ -1,0 +1,16 @@
+{
+  "status": 0,
+  "result": {
+    "id": "00D7F000004AEZBUA4",
+    "accessToken": "00D7F000004AEZB!AQQAQNULYSKx4QRj1TBMm07tyRoDa.9sbIKJIZBmH0jGq2AZ3j79i0Mx.aSDi5jGib_9oY656ihHeLoX1cKQO2OXTtV89Hyt",
+    "instanceUrl": "https://kushalbasu-dev-ed.my.salesforce.com",
+    "username": "kushalbasu2@gmail.com",
+    "clientId": "PlatformCLI",
+    "connectedStatus": "Connected",
+    "sfdxAuthUrl": "force://PlatformCLI::5Aep8613hy0tHCYdhxAD_4DmuCbjbn3Rink72k5wiRUORj21pWjOFAn2_Fk96oPM97sbXZpFElhDNxFL0OUHL15@kushalbasu-dev-ed.my.salesforce.com",
+    "alias": "personal-org"
+  },
+  "warnings": [
+    "This command will expose sensitive information that allows for subsequent activity using your current authenticated session.\nSharing this information is equivalent to logging someone in under the current credential, resulting in unintended access and escalation of privilege.\nFor additional information, please review the authorization section of the https://developer.salesforce.com/docs/atlas.en-us.234.0.sfdx_dev.meta/sfdx_dev/sfdx_dev_auth_web_flow.htm"
+  ]
+}

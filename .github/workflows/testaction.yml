@@ -37,3 +37,8 @@ jobs:
       - uses: ./.github/workflows/deployworkflow.yml
         with: 
           orgname: roles_staging
+  call_workflow:
+    uses: ./.github/workflows/deployworkflow.yml
+    name: Initiate deployment workflow
+    with:
+      orgname: $orgname

@@ -5,11 +5,34 @@ on:
     types:
       - closed
 jobs:
-  if_merged_to_master:
+  merged_to_master:
     if: ${{ github.event.pull_request.merged }} == true && ${{ github.base_ref }} == 'master'
+    env:
+      orgname: roles_prod
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: .github/workflows/deployworkflow.yml
+      - uses: ./.github/workflows/deployworkflow.yml
         with: 
           orgname: roles_prod
+
+  merged_to_dev:
+    if:  ${{ github.event.pull_request.merged }} == true && ${{ github.base_ref }} == 'dev'  
+    env:
+      orgname: roles_dev
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: ./.github/workflows/deployworkflow.yml
+        with: 
+          orgname: roles_dev
+  merged_to_staging:
+    if:  ${{ github.event.pull_request.merged }} == true && ${{ github.base_ref }} == 'staging'
+    env:
+      orgname: roles_staging
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: ./.github/workflows/deployworkflow.yml
+        with: 
+          orgname: roles_staging

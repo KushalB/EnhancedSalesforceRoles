@@ -1,0 +1,11 @@
+name: action-playground
+run-name: ${{ github.actor }} is merging feature branch to master
+on: 
+  push:
+    branches:
+      - Github-Actions-Playground
+jobs:
+  testscripts:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "::workflow-command parameter1={data},parameter2={data}::{command value}"

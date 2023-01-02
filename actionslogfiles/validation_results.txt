@@ -1,0 +1,4 @@
+Deploying v55.0 metadata to kushalbasu2@gmail.com using the v56.0 SOAP API
+Deploy ID: 0Af7F00001QrQ2zSAF
+Successfully validated the deployment. 2 components deployed and 0 tests run.
+Use the --verbose parameter to see detailed output.

@@ -3,12 +3,10 @@ run-name: ${{ github.actor }} is testing Github Actions
 on: push
 jobs: 
   install_sfdx:
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
     steps:
-      - run: curl -o sfdx.pkg 'https://developer.salesforce.com/media/salesforce-cli/sfdx/channels/stable/sfdx.pkg'
-      - run: sudo installer -pkg sfdx.pkg -target /
-      - run: sfdx --version
       - uses: actions/checkout@v3
-      - run: ls
-      - run: sfdx auth:jwt:grant -u ${{ secrets.USERNAME }} -i ${{ secrets.CONSUMER_KEY }} -r https://kushalbasu-dev-ed.my.salesforce.com/ -a kushaldev -f ${{ secrets.CONSUMER_SECRET }}
+      - uses: sfdx-actions/setup-sfdx@v1
+        with:
+          sfdx-auth-url: ${{ secrets.CONSUMER_SECRET }}
       - run: sfdx force:source:retrieve -x ./manifest/package.xml

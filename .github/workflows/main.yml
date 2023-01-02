@@ -13,5 +13,5 @@ jobs:
       - uses: sfdx-actions/setup-sfdx@v1
         with:
           sfdx-auth-url: ${{ secrets.AUTHURL }}
-      - run: sfdx scanner run -t ./ > actionslogfiles/scanner_results.txt
-      - run: sfdx force:source:deploy -c -x ./manifest/package.xml > actionslogfiles/validation_results.txt
+      - run: sfdx scanner run -t ./ > ./actionslogfiles/scanner_results.txt
+      - run: sfdx force:source:deploy -c -x ./manifest/package.xml > ./actionslogfiles/validation_results.txt

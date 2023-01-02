@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - master
-      - Githib-Actions-Playground
+      - Github-Actions-Playground
 jobs: 
   setup:
     runs-on: ubuntu-latest

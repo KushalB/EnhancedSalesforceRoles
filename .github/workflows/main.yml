@@ -10,5 +10,5 @@ jobs:
       - run: sfdx --version
       - uses: actions/checkout@v3
       - run: ls
-      - run: sfdx auth:jwt:grant -u {{ secrets.USERNAME }} -i {{ secrets.CONSUMER_KEY }} -r {{ secrets.INSTANCEURL }} -a kushaldev -f {{ secrets.CONSUMER_SECRET }}
+      - run: sfdx auth:jwt:grant -u {{ secrets.USERNAME }} -i {{ secrets.CONSUMER_KEY }} -r https://kushalbasu-dev-ed.my.salesforce.com/ -a kushaldev -f {{ secrets.CONSUMER_SECRET }}
       - run: sfdx force:source:retrieve -x ./manifest/package.xml

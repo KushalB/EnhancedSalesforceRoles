@@ -5,5 +5,6 @@ jobs:
   checkversion:
     runs-on: macos-latest
     steps:
-      - uses: forcedotcom/salesforcedx-actions@master
+      - run: curl -o sfdx.pkg 'https://developer.salesforce.com/media/salesforce-cli/sfdx/channels/stable/sfdx.pkg'
+      - run: sudo installer -pkg sfdx.pkg -target /
       - run: sfdx --version

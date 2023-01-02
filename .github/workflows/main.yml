@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - main
-      - Github-Actions-Playground
 jobs: 
   install_sfdx:
     runs-on: ubuntu-latest
@@ -15,7 +14,7 @@ jobs:
           sfdx-auth-url: ${{ secrets.AUTHURL }}
       - run: sfdx plugins:install @salesforce/sfdx-scanner 
       - run: sfdx scanner run -t ./ > ./actionslogfiles/scanner_results.txt
-      - run: sfdx force:source:deploy -c -x ./manifest/package.xml > ./actionslogfiles/validation_results.txt
+      - run: sfdx force:source:deploy -x ./manifest/package.xml > ./actionslogfiles/deploy_results.txt
       - run: git config --global user.email "kushalbasu2@gmail.com"
       - run: git config --global user.name "kushalgithub"
       - run: git add .

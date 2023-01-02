@@ -1,9 +1,10 @@
 name: test-github-actions
-run-name: ${{ github.actor }} is testing Github Actions
+run-name: ${{ github.actor }} is merging feature branch to master
 on: 
   push:
     branches:
       - main
+      - Github-Actions-Playground
 jobs: 
   install_sfdx:
     runs-on: ubuntu-latest

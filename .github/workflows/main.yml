@@ -1,9 +1,22 @@
 name: test-github-actions
-run-name: ${{ github.actor }} is testing Github Actions
-on: push
+run-name: ${{ github.actor }} is merging feature branch to master
+on: 
+  push:
+    branches:
+      - main
 jobs: 
-  printhello:
-    runs-on: macos-latest
+  install_sfdx:
+    runs-on: ubuntu-latest
     steps:
-      - run: echo hello
-      - run: echo world
+      - uses: actions/checkout@v3
+      - uses: sfdx-actions/setup-sfdx@v1
+        with:
+          sfdx-auth-url: ${{ secrets.AUTHURL }}
+      - run: sfdx plugins:install @salesforce/sfdx-scanner 
+      - run: sfdx scanner run -t ./ > ./actionslogfiles/scanner_results.txt
+      - run: sfdx force:source:deploy -x ./manifest/package.xml > ./actionslogfiles/deploy_results.txt
+      - run: git config --global user.email "kushalbasu2@gmail.com"
+      - run: git config --global user.name "kushalgithub"
+      - run: git add .
+      - run: git commit -m "Actions Successfully Ended"
+      - run: git push

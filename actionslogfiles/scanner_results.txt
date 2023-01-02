@@ -1,0 +1,25 @@
+LOCATION                                                     DESCRIPTION                                           CATEGORY       U R L
+───────────────────────────────────────────────────────────  ────────────────────────────────────────────────────  ─────────────  ────────────────────────────────────────────────────────────────────────────────────────
+force-app/main/default/classes/UserRoleExportHelper.cls:16     The constant field name 'userfirstname' doesn't     Code Style     https://pmd.github.io/pmd-6.51.0/pmd_rules_apex_codestyle.html#fieldnamingconventions
+                                                               match '[A-Z][A-Z0-9_]*'
+force-app/main/default/classes/UserRoleExportHelper.cls:16     Variables that are final and static should be all   Code Style     https://pmd.github.io/pmd-6.51.0/pmd_rules_apex_codestyle.html#variablenamingconventions
+                                                               capitals, 'userfirstname' is not all capitals.
+force-app/main/default/classes/UserRoleExportHelper.cls:17     The constant field name 'useremail' doesn't match   Code Style     https://pmd.github.io/pmd-6.51.0/pmd_rules_apex_codestyle.html#fieldnamingconventions
+                                                               '[A-Z][A-Z0-9_]*'
+force-app/main/default/classes/UserRoleExportHelper.cls:17     Variables that are final and static should be all   Code Style     https://pmd.github.io/pmd-6.51.0/pmd_rules_apex_codestyle.html#variablenamingconventions
+                                                               capitals, 'useremail' is not all capitals.
+force-app/main/default/classes/UserRoleExportHelper.cls:18     The constant field name 'repoUrl' doesn't match     Code Style     https://pmd.github.io/pmd-6.51.0/pmd_rules_apex_codestyle.html#fieldnamingconventions
+                                                               '[A-Z][A-Z0-9_]*'
+force-app/main/default/classes/UserRoleExportHelper.cls:18     Variables that are final and static should be all   Code Style     https://pmd.github.io/pmd-6.51.0/pmd_rules_apex_codestyle.html#variablenamingconventions
+                                                               capitals, 'repoUrl' is not all capitals.
+force-app/main/default/classes/UserRoleExportHelper.cls:65     The method 'addRoleAsChildNode(Dom.XmlNode, Id)'    Design         https://pmd.github.io/pmd-6.51.0/pmd_rules_apex_design.html#cognitivecomplexity
+                                                               has a cognitive complexity of 16, current
+                                                               threshold is 15
+force-app/main/default/classes/UserRoleExportHelper.cls:91     Validate CRUD permission before SOQL/DML operation  Security       https://pmd.github.io/pmd-6.51.0/pmd_rules_apex_security.html#apexcrudviolation
+force-app/main/default/classes/UserRoleExportHelper.cls:104    Validate CRUD permission before SOQL/DML operation  Security       https://pmd.github.io/pmd-6.51.0/pmd_rules_apex_security.html#apexcrudviolation
+force-app/main/default/classes/UserRoleExportHelper.cls:141    Missing ApexDoc comment                             Documentation  https://pmd.github.io/pmd-6.51.0/pmd_rules_apex_documentation.html#apexdoc
+force-app/main/default/classes/UserRoleExportHelper.cls:145    Missing ApexDoc comment                             Documentation  https://pmd.github.io/pmd-6.51.0/pmd_rules_apex_documentation.html#apexdoc
+Executed pmd, found 11 violation(s) across 1 file(s).
+Executed eslint, found 0 violation(s) across 0 file(s).
+Executed retire-js, found 0 violation(s) across 0 file(s).
+Rule violations were logged to the console.

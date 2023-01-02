@@ -32,3 +32,4 @@ jobs:
     name: Initiate deployment workflow
     with:
       orgname: $orgname
+    secrets: inherit

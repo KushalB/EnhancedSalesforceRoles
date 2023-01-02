@@ -1,0 +1,12 @@
+Deploying v55.0 metadata to kushalbasu2@gmail.com using the v56.0 SOAP API
+Deploy ID: 0Af7F00001QrQ39SAF
+
+=== Deployed Source
+
+ FULL NAME                                TYPE          PROJECT PATH                                                                         
+ ──────────────────────────────────────── ───────────── ──────────────────────────────────────────────────────────────────────────────────── 
+ UserRoleExportHelper                     ApexClass     force-app/main/default/classes/UserRoleExportHelper.cls                              
+ UserRoleExportHelper                     ApexClass     force-app/main/default/classes/UserRoleExportHelper.cls-meta.xml                     
+ unfiled$public/EnhancedEmailRole_Success EmailTemplate force-app/main/default/email/unfiled$public/EnhancedEmailRole_Success.email          
+ unfiled$public/EnhancedEmailRole_Success EmailTemplate force-app/main/default/email/unfiled$public/EnhancedEmailRole_Success.email-meta.xml 
+Deploy Succeeded.

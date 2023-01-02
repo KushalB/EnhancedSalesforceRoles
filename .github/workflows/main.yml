@@ -1,6 +1,9 @@
 name: test-github-actions
 run-name: ${{ github.actor }} is testing Github Actions
-on: push
+on: 
+  push:
+    branches:
+      - main
 jobs: 
   install_sfdx:
     runs-on: ubuntu-latest
@@ -9,4 +12,5 @@ jobs:
       - uses: sfdx-actions/setup-sfdx@v1
         with:
           sfdx-auth-url: ${{ secrets.AUTHURL }}
-      - run: sfdx force:source:retrieve -x ./manifest/package.xml
+      - run: sfdx scanner run -t ./ > actionlogfiles/scanner_results.txt
+      - run: sfdx force:source:deploy -c -x ./manifest/package.xml > actionlogfiles/validation_results.txt

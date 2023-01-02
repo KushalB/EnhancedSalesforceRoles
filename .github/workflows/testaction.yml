@@ -11,12 +11,7 @@ jobs:
       orgname: roles_prod
     runs-on: ubuntu-latest
     steps:
-      - run: ls
       - uses: actions/checkout@v3
-      - uses: ./.github/workflows/deployworkflow.yml
-        with: 
-          orgname: roles_prod
-
   merged_to_dev:
     if:  ${{ github.event.pull_request.merged }} == true && ${{ github.base_ref }} == 'dev'  
     env:
@@ -24,9 +19,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: ./.github/workflows/deployworkflow.yml
-        with: 
-          orgname: roles_dev
   merged_to_staging:
     if:  ${{ github.event.pull_request.merged }} == true && ${{ github.base_ref }} == 'staging'
     env:
@@ -34,9 +26,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: ./.github/workflows/deployworkflow.yml
-        with: 
-          orgname: roles_staging
   call_workflow:
     uses: ./.github/workflows/deployworkflow.yml
     name: Initiate deployment workflow

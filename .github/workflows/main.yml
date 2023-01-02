@@ -15,3 +15,5 @@ jobs:
           sfdx-auth-url: ${{ secrets.AUTHURL }}
       - run: sfdx scanner run -t ./ > ./actionslogfiles/scanner_results.txt
       - run: sfdx force:source:deploy -c -x ./manifest/package.xml > ./actionslogfiles/validation_results.txt
+      - run: git add .
+      - run: git commit -m "Actions Successfully Ended"

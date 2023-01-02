@@ -4,8 +4,9 @@ on:
   push:
     branches:
       - master
+      - Githib-Actions-Playground
 jobs: 
-  install_sfdx:
+  setup:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -13,8 +14,20 @@ jobs:
         with:
           sfdx-auth-url: ${{ secrets.AUTHURL }}
       - run: sfdx plugins:install @salesforce/sfdx-scanner 
+  runscanner:
+    needs: setup
+    runs-on: ubuntu-latest
+    steps:
       - run: sfdx scanner run -t ./ > ./actionslogfiles/scanner_results.txt
+  deploytoOrg:
+    needs: runscanner
+    runs-on: ubuntu-latest
+    steps:
       - run: sfdx force:source:deploy -x ./manifest/package.xml > ./actionslogfiles/deploy_results.txt
+  gitupdate:
+    needs: deploytoOrg
+    runs-on: ubuntu-latest
+    steps:
       - run: git config --global user.email "kushalbasu2@gmail.com"
       - run: git config --global user.name "kushalgithub"
       - run: git add .

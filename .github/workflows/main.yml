@@ -2,8 +2,8 @@ name: test-github-actions
 run-name: ${{ github.actor }} is testing Github Actions
 on: push
 jobs: 
-  printhello:
+  checkversion:
     runs-on: macos-latest
     steps:
-      - run: git --version
+      - uses: forcedotcom/salesforcedx-actions@master
       - run: sfdx --version

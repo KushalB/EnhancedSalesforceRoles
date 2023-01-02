@@ -12,6 +12,7 @@ jobs:
     environment: ${{ inputs.orgname }}
     steps:
       - run : echo ${{ secrets.AUTH_URL }}
+      - run : echo ${{ environment }}
       - uses: actions/checkout@v3
       - uses: sfdx-actions/setup-sfdx@v1
         with:

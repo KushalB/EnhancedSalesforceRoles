@@ -1,6 +1,6 @@
 name: Pull Request Validation
 on: 
-  pull_request:
+  qwepull_request:
     types: [opened,reopened]
 jobs:
   scanner:

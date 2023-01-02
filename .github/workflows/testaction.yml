@@ -1,0 +1,14 @@
+name: action-playground
+run-name: ${{ github.actor }} is merging feature branch to master
+on:
+  pull_request:
+    types:
+      - closed
+jobs:
+  if_merged_to_master:
+    if: ${{ github.event.pull_request.merged }} == true && ${{ github.base_ref }} == 'master'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: ./.github/workflows/deployworkflow.yml
+        with: 
+          orgname: roles_prod

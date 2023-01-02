@@ -1,0 +1,20 @@
+name: Deploy Action
+run-name: ${{ github.actor }} is pushing changes to ${{ inputs.env }}
+on:
+  workflow_call:
+    inputs:
+      orgname:
+        required: true
+        type: string
+jobs:
+  deployment-job:
+    runs-on: ubuntu-latest
+    environment: ${{ inputs.orgname }}
+    steps:
+      - uses: actions/checkout@v3
+      - uses: sfdx-actions/setup-sfdx@v1
+        with:
+          sfdx-auth-url: ${{ secrets.AUTH_URL }}
+      - run: sfdx plugins:install @salesforce/sfdx-scanner 
+      - run: sfdx scanner run -t ./ > ./actionslogfiles/scanner_results.txt
+      - run: sfdx force:source:deploy -x ./manifest/package.xml > ./actionslogfiles/deploy_results.txt

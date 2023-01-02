@@ -8,4 +8,4 @@ jobs:
   testscripts:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "::workflow-command parameter1={data},parameter2={data}::{command value}"
+      - run: core.getInput()

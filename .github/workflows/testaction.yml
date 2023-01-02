@@ -27,6 +27,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
   call_workflow:
+    needs: [merged_to_master,merged_to_dev,merged_to_staging]
     uses: ./.github/workflows/deployworkflow.yml
     name: Initiate deployment workflow
     with:

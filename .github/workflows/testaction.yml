@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: .github/workflows/deployworkflow.yml
+      - uses: KushalB/EnhancedSalesforceRoles/.github/workflows/deployworkflow.yml@master
         with: 
           authurl: ${{ secrets.AUTH_URL}}
   merged_to_dev:

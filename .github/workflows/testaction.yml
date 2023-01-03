@@ -4,32 +4,29 @@ on:
   pull_request:
     types:
       - closed
-env: 
-  authurl: 'blank'
 jobs:
   merged_to_master:
-    if: ${{ github.event.pull_request.merged }} == true && ${{ github.base_ref }} == 'master'
+    if: github.base_ref == 'master'
     environment: roles_prod
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
   merged_to_dev:
-    if:  ${{ github.event.pull_request.merged }} == true && ${{ github.base_ref }} == 'dev'  
+    if: github.base_ref == 'dev'  
     environment: roles_dev
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
   merged_to_staging:
-    if:  ${{ github.event.pull_request.merged }} == true && ${{ github.base_ref }} == 'staging'
+    if: github.base_ref == 'staging'
     environment: roles_staging
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - run: $authurl = ${{ secrets.AUTH_URL}}
   call_workflow:
     needs: [merged_to_master,merged_to_dev,merged_to_staging]
     uses: ./.github/workflows/deployworkflow.yml
     name: Initiate deployment workflow
     with:
-      authurl: $authurl
+      authurl: $environment.auth_url
     secrets: inherit

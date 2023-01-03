@@ -3,18 +3,18 @@ run-name: ${{ github.actor }} Deployment Workflow
 on:
   workflow_call:
     inputs:
-      authurl:
+      ENVIRONMENT:
         required: true
         type: string
 jobs:
   deployment-job:
     runs-on: ubuntu-latest
+    environment: ${{ inputs.ENVIRONMENT }}
     steps:
-      - run: "echo authurl: ${{ inputs.authurl }}"
       - uses: actions/checkout@v3
       - uses: sfdx-actions/setup-sfdx@v1
         with:
-          sfdx-auth-url: ${{ inputs.authurl }}
+          sfdx-auth-url: ${{ secrets.AUTH_URL }}
       - run: sfdx plugins:install @salesforce/sfdx-scanner 
       - run: sfdx scanner run -t ./ > ./actionslogfiles/scanner_results.txt
       - run: sfdx force:source:deploy -x ./manifest/package.xml > ./actionslogfiles/deploy_results.txt

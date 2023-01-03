@@ -6,6 +6,9 @@ on:
       ENVIRONMENT:
         required: true
         type: string
+      username:
+        required: true
+        type: string
 jobs:
   deployment-job:
     runs-on: ubuntu-latest
@@ -17,4 +20,4 @@ jobs:
           sfdx-auth-url: ${{ secrets.AUTH_URL }}
       - run: sfdx plugins:install @salesforce/sfdx-scanner 
       - run: sfdx scanner run -t ./ > ./actionslogfiles/scanner_results.txt
-      - run: sfdx force:source:deploy -x ./manifest/package.xml > ./actionslogfiles/deploy_results.txt
+      - run: sfdx force:source:deploy -u ${{ inputs.username }} -x ./manifest/package.xml > ./actionslogfiles/deploy_results.txt

@@ -32,4 +32,4 @@ jobs:
     uses: ./.github/workflows/deployworkflow.yml
     name: Initiate deployment workflow
     with:
-      authurl: $environment.AUTH_URL
+      authurl: $environment.secrets.AUTH_URL

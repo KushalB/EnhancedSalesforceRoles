@@ -11,25 +11,19 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - uses: ./.github/workflows/deployworkflow.yml
+        with: 
+          authurl: ${{ secrets.AUTH_URL}}
   merged_to_dev:
     if: ${{ github.base_ref == 'dev' }}
     environment: roles_dev
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+
   merged_to_staging:
     if: ${{ github.base_ref == 'staging' }}
     environment: roles_staging
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-  call_workflow:
-    if: |
-      always()
-      && contains(needs.*.result, 'success')
-      && !contains(needs.*.result, 'failure')
-    needs: [merged_to_master,merged_to_dev,merged_to_staging]
-    uses: ./.github/workflows/deployworkflow.yml
-    name: Initiate deployment workflow
-    with:
-      authurl: ${{ secrets.AUTH_URL}}

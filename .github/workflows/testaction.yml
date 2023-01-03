@@ -28,5 +28,5 @@ jobs:
     uses: ./.github/workflows/deployworkflow.yml
     name: Initiate deployment workflow
     with:
-      authurl: $environment.auth_url
+      authurl: $environment.AUTH_URL
     secrets: inherit

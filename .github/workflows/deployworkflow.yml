@@ -1,5 +1,5 @@
 name: Deploy Action
-run-name: ${{ github.actor }} is pushing changes to ${{ env.GITHUB_ENV }}
+run-name: ${{ github.actor }} is pushing changes to ${{ GITHUB_ENV }}
 on:
   workflow_call:
     inputs:

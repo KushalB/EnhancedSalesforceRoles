@@ -1,0 +1,15 @@
+name: deploy-to-production
+run-name: ${{ github.actor}} pushing changes to production
+on:
+  pull_request:
+    types:
+      - closed
+  push:
+    branches:
+      - master
+jobs: 
+  merged_to_master:
+    uses: ./.github/workflows/deployworkflow.yml
+    with: 
+      ENVIRONMENT: roles_prod
+

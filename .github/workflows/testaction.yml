@@ -29,4 +29,3 @@ jobs:
     name: Initiate deployment workflow
     with:
       authurl: $environment.AUTH_URL
-    secrets: inherit

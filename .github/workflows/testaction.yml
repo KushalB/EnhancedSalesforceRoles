@@ -6,19 +6,19 @@ on:
       - closed
 jobs:
   merged_to_master:
-    if: github.base_ref == 'master'
+    if: ${{ github.base_ref == 'master' }}
     environment: roles_prod
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
   merged_to_dev:
-    if: github.base_ref == 'dev'  
+    if: ${{ github.base_ref == 'dev' }}
     environment: roles_dev
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
   merged_to_staging:
-    if: github.base_ref == 'staging'
+    if: ${{ github.base_ref == 'staging' }}
     environment: roles_staging
     runs-on: ubuntu-latest
     steps:
@@ -28,5 +28,5 @@ jobs:
     uses: ./.github/workflows/deployworkflow.yml
     name: Initiate deployment workflow
     with:
-      authurl: $environment.auth_url
+      authurl: $environment.AUTH_URL
     secrets: inherit

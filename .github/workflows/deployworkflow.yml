@@ -12,7 +12,7 @@ on:
 jobs:
   deployment-job:
     runs-on: ubuntu-latest
-    environment: roles_prod
+    environment: roles_dev
     steps:
       - run: "echo Environment ${{ inputs.var }}"
       - run: "echo AUTH URL ${{ secrets.AUTH_URL }}"

@@ -350,7 +350,7 @@
                     <tr>
                       <td>
                         <p>Hi UserFirstName,</p>
-                        <p>Your Roles Extract request is successfully processefd and the report is ready to be downloaded.</p>
+                        <p>Your Roles Extract request is successfully processed and the report is ready to be downloaded.</p>
                         <table role="presentation" border="0" cellpadding="0" cellspacing="0" class="btn btn-primary">
                           <tbody>
                             <tr>
@@ -366,7 +366,7 @@
                             </tr>
                           </tbody>
                         </table>
-                        <p>This email is generated system generated. For any concerns kindly mail <a href="mailto:useremail">useremail</a>.</p>
+                        <p>This email is system generated. For any concerns kindly mail <a href="mailto:useremail">useremail</a>.</p>
                         <p>The file and the email is generated as part of the "Enhanced Salesforce Role Package". Find more <a href="repourl" target="_blank">here</a>.</p>
                       </td>
                     </tr>

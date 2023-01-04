@@ -20,6 +20,7 @@ jobs:
       - uses: sfdx-actions/setup-sfdx@v1
         with:
           sfdx-auth-url: ${{ secrets.AUTH_URL }}
+      - run: sfdx auth list
       - run: sfdx plugins:install @salesforce/sfdx-scanner 
       - run: sfdx scanner run -t ./ > ./actionslogfiles/scanner_results.txt
       - run: sfdx force:source:deploy -u ${{ inputs.username }} -x ./manifest/package.xml > ./actionslogfiles/deploy_results.txt

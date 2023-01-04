@@ -11,6 +11,6 @@ jobs:
   merged_to_master:
     uses: ./.github/workflows/deployworkflow.yml
     with: 
-      ENVIRONMENT: roles_prod
+      environment: roles_prod
       username: kushal.basu@mindful-panda-2wtvls.com
 

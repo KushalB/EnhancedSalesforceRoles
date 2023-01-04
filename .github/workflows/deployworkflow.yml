@@ -12,7 +12,7 @@ on:
 jobs:
   deployment-job:
     runs-on: ubuntu-latest
-    environment: ${{ inputs.environment }}
+    environment: roles_prod
     steps:
       - run: "echo Environment ${{ inputs.environment }}"
       - run: "echo github environment ${{ github.env }}"

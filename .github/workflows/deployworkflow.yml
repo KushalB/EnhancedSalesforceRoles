@@ -3,7 +3,7 @@ run-name: ${{ github.actor }} Deployment Workflow
 on:
   workflow_call:
     inputs:
-      environment:
+      var:
         required: true
         type: string
       username:
@@ -14,8 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     environment: roles_prod
     steps:
-      - run: "echo Environment ${{ inputs.environment }}"
-      - run: "echo github environment ${{ github.env }}"
+      - run: "echo Environment ${{ inputs.var }}"
       - run: "echo AUTH URL ${{ secrets.AUTH_URL }}"
       - run: "echo username ${{ inputs.username }}"
       - uses: actions/checkout@v3

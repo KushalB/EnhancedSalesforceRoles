@@ -3,7 +3,7 @@ run-name: ${{ github.actor }} Deployment Workflow
 on:
   workflow_call:
     inputs:
-      ENVIRONMENT:
+      environment:
         required: true
         type: string
       username:
@@ -12,10 +12,12 @@ on:
 jobs:
   deployment-job:
     runs-on: ubuntu-latest
-    environment: ${{ inputs.ENVIRONMENT }}
+    environment: ${{ inputs.environment }}
     steps:
+      - run: "echo Environment ${{ inputs.environment }}"
+      - run: "echo github environment ${{ github.env }}"
       - run: "echo AUTH URL ${{ secrets.AUTH_URL }}"
-      - run: "echo AUTH URL ${{ inputs.username }}"
+      - run: "echo username ${{ inputs.username }}"
       - uses: actions/checkout@v3
       - uses: sfdx-actions/setup-sfdx@v1
         with:

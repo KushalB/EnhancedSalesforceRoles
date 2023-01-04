@@ -1,10 +1,9 @@
 name: deploy-to-staging
-run-name: ${{ github.actor}} pushing changes to production
+run-name: ${{ github.actor}} pushing changes to staging
 on:
   pull_request:
     types:
       - closed
-  push:
     branches:
       - staging
 jobs: 

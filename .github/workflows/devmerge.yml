@@ -1,10 +1,9 @@
 name: deploy-to-dev
-run-name: ${{ github.actor}} pushing changes to production
+run-name: ${{ github.actor}} pushing changes to development
 on:
   pull_request:
     types:
       - closed
-  push:
     branches:
       - dev
 jobs: 

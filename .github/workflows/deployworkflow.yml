@@ -14,6 +14,8 @@ jobs:
     runs-on: ubuntu-latest
     environment: ${{ inputs.ENVIRONMENT }}
     steps:
+      - run: "echo AUTH URL ${{ secrets.AUTH_URL }}"
+      - run: "echo AUTH URL ${{ inputs.username }}"
       - uses: actions/checkout@v3
       - uses: sfdx-actions/setup-sfdx@v1
         with:

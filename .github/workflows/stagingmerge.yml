@@ -9,7 +9,7 @@ on:
 jobs: 
   merged_to_master:
     runs-on: ubuntu-latest
-    environment: roles_prod
+    environment: roles_staging
     steps:
       - uses: actions/checkout@v3
       - uses: sfdx-actions/setup-sfdx@v1

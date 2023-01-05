@@ -2,7 +2,7 @@
  * @description       : 
  * @author            : kushal.basu@salesforce.com
  * @group             : 
- * @last modified on  : 12-30-2022
+ * @last modified on  : 01-06-2023
  * @last modified by  : kushalbasu2@gmail.com
 **/
 public with sharing class UserRoleExportHelper {
@@ -87,7 +87,8 @@ public with sharing class UserRoleExportHelper {
     public void generateRoleXMlDocument(){
         if(doc!=null){
             String xmlStr = doc.toXmlString();
-            fileDoc = createDocument('Roles.xml',xmlStr);
+            String fileName = getFileName()+'.xml';
+            fileDoc = createDocument(fileName,xmlStr);
             insert fileDoc;
             sendFileToEmail();
         }else{
@@ -126,7 +127,8 @@ public with sharing class UserRoleExportHelper {
     public void generateRoleJsonDocument(){
         if(doc!=null){
             String jsonStr = JSON.serialize(doc, true);
-            insert createDocument('Roles.json',jsonStr);
+            String fileName = getFileName()+'.json';
+            insert createDocument(fileName,jsonStr);
         }else{
             throw new UserRoleExportException('Doc is null!');
         }
@@ -146,5 +148,8 @@ public with sharing class UserRoleExportHelper {
         UserRoleExportHelper usrHlp = new UserRoleExportHelper();
         usrHlp.startExtracting();
         usrHlp.generateRoleXMlDocument();
+    }
+    public static String getFileName(){
+        return 'Roles of '+UserInfo.getOrganizationName()+' as of '+DateTime.now().format('yyyy-mm-dd_hh-mm');
     }
 }

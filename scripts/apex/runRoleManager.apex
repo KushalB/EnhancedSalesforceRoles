@@ -1,4 +1,4 @@
 //UserRoleExportHelper.run();
 
-XMLToolKit xmlObj = new XMLToolKit();
-xmlObj.genDoc();
+UserRoleExportHelper.startExtraction(true);
+UserRoleExportHelper.startExtraction(false);

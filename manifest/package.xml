@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
     <types>
-        <members>UserRoleExportHelper</members>
+        <members>FileToolkit</members>
+        <members>EmailToolKit</members>
+        <members>JSONToolkit</members>
+        <members>XMLToolKit</members>
+        <members>ExceptionToolKit</members>
+        <members>RoleExtractionException</members>
         <name>ApexClass</name>
     </types>
     <types>

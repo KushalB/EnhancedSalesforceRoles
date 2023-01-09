@@ -2,12 +2,29 @@
  * @description       : 
  * @author            : kushalbasu2@gmail.com
  * @group             : 
- * @last modified on  : 01-08-2023
- * @last modified by  : kushalbasu2@gmail.com
+ * @last modified on  : 01-09-2023
+ * @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
 **/
-public interface FileToolkit {
-    void setRoot(id rootId);
-    void addChild(Object parent, id userRoleId);
-    void genDoc();
-    void getFileName();
+public abstract class FileToolkit {
+    Map<Id,UserRole> userRoleMap;
+    Map<Id,List<Id>> userParentChildRoleMap;
+    id rootRoleId;
+    public FileToolkit(){
+        userRoleMap = new Map<Id,UserRole>([SELECT id,DeveloperName,ParentRoleId FROM UserRole]);
+        userParentChildRoleMap = new Map<Id,List<Id>>();
+        for(UserRole usrRlObj :  userRoleMap.values()){
+            if(usrRlObj.ParentRoleId==null){
+                userParentChildRoleMap.put(usrRlObj.id,new List<Id>());
+                rootRoleId = usrRlObj.id;
+            }else if(userParentChildRoleMap.containsKey(usrRlObj.ParentRoleId)){
+                userParentChildRoleMap.get(usrRlObj.ParentRoleId).add(usrRlObj.id);
+            }else{
+                userParentChildRoleMap.put(usrRlObj.ParentRoleId,new List<Id>{usrRlObj.id});
+            }
+        }
+    }
+    public abstract void setRoot(id rootId);
+    public abstract void addChild(Object parent, id userRoleId);
+    public abstract Document genDoc();
+    public abstract String getFileName();
 }

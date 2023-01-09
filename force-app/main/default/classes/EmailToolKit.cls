@@ -2,10 +2,14 @@
  * @description       : 
  * @author            : kushalbasu2@gmail.com
  * @group             : 
- * @last modified on  : 01-08-2023
- * @last modified by  : kushalbasu2@gmail.com
+ * @last modified on  : 01-09-2023
+ * @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
 **/
-public interface EmailToolKit {
-    String addMergeFieldInfo(String emailBody,String downloadLink);
-    void sendFileToEmail();
+public virtual class EmailToolKit {
+    public String addMergeFieldInfo(String emailBody,String downloadLink){
+        return null; 
+    }
+    public void sendFileToEmail(){
+
+    }
 }

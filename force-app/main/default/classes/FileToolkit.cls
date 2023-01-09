@@ -6,10 +6,11 @@
  * @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
 **/
 public abstract class FileToolkit {
-    Map<Id,UserRole> userRoleMap;
-    Map<Id,List<Id>> userParentChildRoleMap;
-    id rootRoleId;
-    public FileToolkit(){
+    protected Map<Id,UserRole> userRoleMap;
+    protected  Map<Id,List<Id>> userParentChildRoleMap;
+    protected  id rootRoleId;
+    protected Document docFile;
+    protected FileToolkit(){
         userRoleMap = new Map<Id,UserRole>([SELECT id,DeveloperName,ParentRoleId FROM UserRole]);
         userParentChildRoleMap = new Map<Id,List<Id>>();
         for(UserRole usrRlObj :  userRoleMap.values()){
@@ -26,5 +27,17 @@ public abstract class FileToolkit {
     public abstract void setRoot(id rootId);
     public abstract void addChild(Object parent, id userRoleId);
     public abstract Document genDoc();
-    public abstract String getFileName();
+    protected String getFileName(){
+        return 'Roles of '+UserInfo.getOrganizationName()+' as of '+DateTime.now().format('yyyy-mm-dd_hh-mm');
+    }
+    protected Document createDocument(String name,String body){
+        this.docFile = new Document();
+        docFile.folderId = UserInfo.getUserId();
+        docFile.Name = name;
+        docFile.Body = Blob.valueOf(body);
+        return docFile;
+    }
+    protected void sendFileToEmail(){
+        EmailToolKit.sendFileToEmail(this.docFile);
+    }
 }

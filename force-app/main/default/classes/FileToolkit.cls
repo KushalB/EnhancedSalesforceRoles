@@ -24,7 +24,9 @@ public abstract class FileToolkit {
             }
         }
     }
-    public abstract void setRoot(id rootId);
+    protected void setRoot(id rootId){
+        this.rootRoleId = rootId;
+    }
     public abstract void addChild(Object parent, id userRoleId);
     public abstract Document genDoc();
     protected String getFileName(){

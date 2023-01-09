@@ -12,9 +12,6 @@ public inherited sharing class XMLToolKit extends FileToolkit{
         super();
         doc = new Dom.Document();
     }
-    public override void setRoot(id rootId){
-        this.rootRoleId = rootId;
-    }
     public override void addChild(Object parent, id userRoleId){
         Dom.XmlNode parentNode = (Dom.XmlNode) parent;
         if(userRoleId!=null && userRoleMap.containsKey(userRoleId)){

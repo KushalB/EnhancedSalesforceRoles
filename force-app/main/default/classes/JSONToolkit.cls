@@ -34,7 +34,7 @@ public with sharing class JSONToolkit extends FileToolkit {
     }
   }
   public override Document genDoc() {
-    if (rootRole != null) {
+    if (rootRoleId != null) {
       String jsonStr = genDocBody();
       String fileName = getFileName() + '.json';
       this.docFile = createDocument(fileName, jsonStr);

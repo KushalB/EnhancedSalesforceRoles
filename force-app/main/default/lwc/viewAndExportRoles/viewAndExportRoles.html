@@ -2,59 +2,57 @@
   @description       : 
   @author            : ChangeMeIn@UserSettingsUnder.SFDoc
   @group             : 
-  @last modified on  : 01-09-2023
+  @last modified on  : 01-11-2023
   @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
 -->
 <template>
-  <p class="slds-text-heading_small">{activeSectionMessage}</p>
+  <div class="slds-box slds-theme_shade" align="center">
+    <lightning-badge
+      label="Work in Progress"
+      icon-name="utility:warning"
+    ></lightning-badge>
+    <lightning-textarea
+      name="input4"
+      readonly
+      value={text}
+      label="Read-only textarea field"
+    ></lightning-textarea>
 
-  <lightning-button
-    onclick={handleSetActiveSectionC}
-    label="Open Section C"
-  ></lightning-button>
+    <lightning-button
+      variant="brand"
+      label="Load as XML"
+      title="Primary action"
+      onclick={handleClickonLoadXML}
+      class="slds-m-left_x-small"
+    ></lightning-button>
+    <lightning-button
+      variant="brand"
+      label="Email XML"
+      title="Primary action"
+      onclick={handleClickonEmailXml}
+      class="slds-m-left_x-small"
+    ></lightning-button>
 
-  <lightning-accordion
-    class="example-accordion"
-    onsectiontoggle={handleToggleSection}
-    active-section-name="B"
-  >
-    <lightning-accordion-section name="A" label="Accordion Title A">
-      <lightning-button-menu
-        slot="actions"
-        alternative-text="Show menu"
-        icon-size="x-small"
-        menu-alignment="right"
-      >
-        <lightning-menu-item
-          value="New"
-          label="Menu Item One"
-        ></lightning-menu-item>
-        <lightning-menu-item
-          value="Edit"
-          label="Menu Item Two"
-        ></lightning-menu-item>
-      </lightning-button-menu>
-      <p>This is the content area for section A.</p>
-      <p>.</p>
-      <p>.</p>
-      <p>.</p>
-      <p>The section height expands to fit your content.</p>
-    </lightning-accordion-section>
-
-    <lightning-accordion-section name="B" label="Accordion Title B">
-      <p>This is the content area for section B.</p>
-      <p>.</p>
-      <p>.</p>
-      <p>.</p>
-      <p>The section height expands to fit your content.</p>
-    </lightning-accordion-section>
-
-    <lightning-accordion-section name="C" label="Accordion Title C">
-      <p>This is the content area for section C.</p>
-      <p>.</p>
-      <p>.</p>
-      <p>.</p>
-      <p>The section height expands to fit your content.</p>
-    </lightning-accordion-section>
-  </lightning-accordion>
+    <lightning-button
+      variant="brand"
+      label="Load as JSON"
+      title="Primary action"
+      onclick={handleClickonLoadJSON}
+      class="slds-m-left_x-small"
+    ></lightning-button>
+    <lightning-button
+      variant="brand"
+      label="Email JSON"
+      title="Primary action"
+      onclick={handleClickonEmailJSON}
+      class="slds-m-left_x-small"
+    ></lightning-button>
+    <lightning-button
+      variant="brand"
+      label="Clear"
+      title="Primary action"
+      onclick={handleClickonClear}
+      class="slds-m-left_x-small"
+    ></lightning-button>
+  </div>
 </template>

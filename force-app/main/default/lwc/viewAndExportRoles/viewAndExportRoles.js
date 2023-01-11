@@ -3,9 +3,7 @@ import getText from "@salesforce/apex/UserRoleExportHelper.lwcControllertoExport
 import sendEmail from "@salesforce/apex/UserRoleExportHelper.lwcControllertoExportasEmail";
 
 export default class ViewAndExportRoles extends LightningElement {
-  text =
-    "You can either load the roles in xml/json format, else you can export to your email";
-  //value = 'XML';
+  text = "";
   isXml = true;
   get options() {
     return [
@@ -14,7 +12,12 @@ export default class ViewAndExportRoles extends LightningElement {
     ];
   }
   optionSelectionHandler(event) {
-    this.isXml = event.detail.value;
+    let type = event.detail.value;
+    if (type === "XML") {
+      this.isXml = true;
+    } else {
+      this.isXml = false;
+    }
   }
   handleClickonShow() {
     getText({ isXml: this.isXml })

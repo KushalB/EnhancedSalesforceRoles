@@ -2,7 +2,7 @@
   @description       : 
   @author            : ChangeMeIn@UserSettingsUnder.SFDoc
   @group             : 
-  @last modified on  : 01-11-2023
+  @last modified on  : 01-12-2023
   @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
 -->
 <template>
@@ -11,15 +11,17 @@
       label="Work in Progress"
       icon-name="utility:warning"
     ></lightning-badge>
-    <div id="view">
+    <div id="view" style="width: 45%">
       <lightning-textarea
+        placeholder="If you click on scan and show, it will show up here."
         name="input4"
         readonly
         value={text}
         label=""
+        style="--sds-c-textarea-sizing-min-height: 200px"
       ></lightning-textarea>
     </div>
-    <div id="controller">
+    <div id="controller" style="width: 25%">
       <lightning-combobox
         name="outputType"
         label=""
@@ -29,7 +31,7 @@
         onchange={optionSelectionHandler}
         required
       ></lightning-combobox>
-
+      <br />
       <lightning-button
         variant="brand"
         label="Scan and Show"

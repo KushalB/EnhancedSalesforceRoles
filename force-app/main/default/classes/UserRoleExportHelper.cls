@@ -22,30 +22,21 @@ public with sharing class UserRoleExportHelper {
     }
     return toolKit;
   }
+
   @AuraEnabled
-  public static string lwcControllertoExportasXML() {
+  public static string lwcControllertoExportasText(boolean isXml) {
     try {
-      ExportType type = ExportType.XML;
+      ExportType type = (isXml ? ExportType.XML : ExportType.JSON);
       FileToolkit toolkitObj = getToolKitInstance(type);
       return toolkitObj.genDocBody();
     } catch (Exception e) {
       throw new AuraHandledException(e.getMessage());
     }
   }
-  @AuraEnabled
-  public static string lwcControllertoExportasJSON() {
-    try {
-      ExportType type = ExportType.JSON;
-      FileToolkit toolkitObj = getToolKitInstance(type);
-      return toolkitObj.genDocBody();
-    } catch (Exception e) {
-      throw new AuraHandledException(e.getMessage());
-    }
-  }
+
   @AuraEnabled
   public static string lwcControllertoExportasEmail(boolean isXml) {
     try {
-      //TODO: EMAIL SENDING
       startExtraction(isXml);
       return 'Successfully Sent';
     } catch (Exception e) {

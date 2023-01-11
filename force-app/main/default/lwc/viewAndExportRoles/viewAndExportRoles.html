@@ -11,48 +11,48 @@
       label="Work in Progress"
       icon-name="utility:warning"
     ></lightning-badge>
-    <lightning-textarea
-      name="input4"
-      readonly
-      value={text}
-      label="Read-only textarea field"
-    ></lightning-textarea>
+    <div id="view">
+      <lightning-textarea
+        name="input4"
+        readonly
+        value={text}
+        label=""
+      ></lightning-textarea>
+    </div>
+    <div id="controller">
+      <lightning-combobox
+        name="outputType"
+        label=""
+        value=""
+        placeholder="Select Output Type"
+        options={options}
+        onchange={optionSelectionHandler}
+        required
+      ></lightning-combobox>
 
-    <lightning-button
-      variant="brand"
-      label="Load as XML"
-      title="Primary action"
-      onclick={handleClickonLoadXML}
-      class="slds-m-left_x-small"
-    ></lightning-button>
-    <lightning-button
-      variant="brand"
-      label="Email XML"
-      title="Primary action"
-      onclick={handleClickonEmailXml}
-      class="slds-m-left_x-small"
-    ></lightning-button>
+      <lightning-button
+        variant="brand"
+        label="Scan and Show"
+        title="Primary action"
+        onclick={handleClickonShow}
+        class="slds-m-left_x-small"
+      ></lightning-button>
 
-    <lightning-button
-      variant="brand"
-      label="Load as JSON"
-      title="Primary action"
-      onclick={handleClickonLoadJSON}
-      class="slds-m-left_x-small"
-    ></lightning-button>
-    <lightning-button
-      variant="brand"
-      label="Email JSON"
-      title="Primary action"
-      onclick={handleClickonEmailJSON}
-      class="slds-m-left_x-small"
-    ></lightning-button>
-    <lightning-button
-      variant="brand"
-      label="Clear"
-      title="Primary action"
-      onclick={handleClickonClear}
-      class="slds-m-left_x-small"
-    ></lightning-button>
+      <lightning-button
+        variant="brand"
+        label="Scan and Email"
+        title="Primary action"
+        onclick={handleClickonSend}
+        class="slds-m-left_x-small"
+      ></lightning-button>
+
+      <lightning-button
+        variant="brand"
+        label="Clear"
+        title="Primary action"
+        onclick={handleClickonClear}
+        class="slds-m-left_x-small"
+      ></lightning-button>
+    </div>
   </div>
 </template>

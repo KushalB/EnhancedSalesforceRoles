@@ -1,13 +1,23 @@
 import { LightningElement } from "lwc";
-import getDocXML from "@salesforce/apex/UserRoleExportHelper.lwcControllertoExportasXML";
-import getDocJson from "@salesforce/apex/UserRoleExportHelper.lwcControllertoExportasJSON";
+import getText from "@salesforce/apex/UserRoleExportHelper.lwcControllertoExportasText";
 import sendEmail from "@salesforce/apex/UserRoleExportHelper.lwcControllertoExportasEmail";
 
 export default class ViewAndExportRoles extends LightningElement {
   text =
     "You can either load the roles in xml/json format, else you can export to your email";
-  handleClickonLoadXML() {
-    getDocXML()
+  //value = 'XML';
+  isXml = true;
+  get options() {
+    return [
+      { label: "XML", value: "XML" },
+      { label: "JSON", value: "JSON" }
+    ];
+  }
+  optionSelectionHandler(event) {
+    this.isXml = event.detail.value;
+  }
+  handleClickonShow() {
+    getText({ isXml: this.isXml })
       .then((result) => {
         this.text = result;
       })
@@ -15,26 +25,8 @@ export default class ViewAndExportRoles extends LightningElement {
         this.text = error;
       });
   }
-  handleClickonLoadJSON() {
-    getDocJson()
-      .then((result) => {
-        this.text = result;
-      })
-      .catch((error) => {
-        this.text = error;
-      });
-  }
-  handleClickonEmailXml() {
-    sendEmail({ isXml: true })
-      .then((result) => {
-        this.text = result;
-      })
-      .catch((error) => {
-        this.text = error;
-      });
-  }
-  handleClickonEmailJSON() {
-    sendEmail({ isXml: false })
+  handleClickonSend() {
+    sendEmail({ isXml: this.isXml })
       .then((result) => {
         this.text = result;
       })

@@ -1,0 +1,28 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 01-23-2023
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+  <div class="slds-m-top_medium slds-m-bottom_x-large">
+    <h2 class="slds-text-heading_medium slds-m-bottom_medium">
+      Tree Grid component with some rows that will dynamically load children
+      only when initially expanded.
+    </h2>
+
+    <!-- Expanded rows -->
+    <div class="slds-p-around_medium lgc-bg">
+      <lightning-tree-grid
+        class="lgc-example-treegrid"
+        columns={gridColumns}
+        data={gridData}
+        expanded-rows={gridExpandedRows}
+        key-field="name"
+        is-loading={gridLoadingState}
+        ontoggle={handleRowToggle}
+      ></lightning-tree-grid>
+    </div>
+  </div>
+</template>

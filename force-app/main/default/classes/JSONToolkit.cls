@@ -2,7 +2,7 @@
  * @description       :
  * @author            : ChangeMeIn@UserSettingsUnder.SFDoc
  * @group             :
- * @last modified on  : 01-11-2023
+ * @last modified on  : 01-23-2023
  * @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
  **/
 public with sharing class JSONToolkit extends FileToolkit {
@@ -16,6 +16,8 @@ public with sharing class JSONToolkit extends FileToolkit {
       UserRole role = userRoleMap.get(userRoleId);
       RolePOJO currentRole = new RolePOJO();
       currentRole.RoleName = role.DeveloperName;
+      currentRole.RoleLabel = role.Name;
+      currentRole.roleId = role.id;
       if (parentRole != null) {
         parentRole.childRoles.add(currentRole);
       } else {
@@ -51,11 +53,16 @@ public with sharing class JSONToolkit extends FileToolkit {
     } else {
       throw new RoleExtractionException('Unknown Root Role Id : ' + rootRoleId);
     }
-    String jsonStr = JSON.serializePretty(rootRole, true);
+    RolePOJO[] roles = new List<RolePOJO>();
+    roles.add(rootRole);
+    String jsonStr = JSON.serializePretty(roles, true);
     return jsonStr;
   }
   public class RolePOJO {
     String RoleName;
+    String RoleLabel;
+    Integer userNumbers;
+    Id roleId;
     RolePOJO[] childRoles;
     RolePOJO() {
       childRoles = new List<RolePOJO>();

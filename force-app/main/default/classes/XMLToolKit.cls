@@ -2,7 +2,7 @@
  * @description       :
  * @author            : ChangeMeIn@UserSettingsUnder.SFDoc
  * @group             :
- * @last modified on  : 01-11-2023
+ * @last modified on  : 01-23-2023
  * @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
  **/
 public inherited sharing class XMLToolKit extends FileToolkit {
@@ -26,6 +26,10 @@ public inherited sharing class XMLToolKit extends FileToolkit {
       } else {
         currentNode = doc.createRootElement(role.DeveloperName, null, null);
       }
+
+      currentNode.setAttribute('id', role.Id);
+      currentNode.setAttribute('Label', role.Name);
+
       if (
         userParentChildRoleMap.containsKey(userRoleId) &&
         !userParentChildRoleMap.get(userRoleId).isEmpty()

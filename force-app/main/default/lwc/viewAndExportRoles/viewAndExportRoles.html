@@ -2,7 +2,7 @@
   @description       : 
   @author            : ChangeMeIn@UserSettingsUnder.SFDoc
   @group             : 
-  @last modified on  : 01-12-2023
+  @last modified on  : 01-23-2023
   @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
 -->
 <template>
@@ -55,6 +55,22 @@
         onclick={handleClickonClear}
         class="slds-m-left_x-small"
       ></lightning-button>
+    </div>
+    <div class="slds-p-around_medium lgc-bg">
+      <div class="slds-m-bottom_small">
+        <lightning-button label="Collapse All" onclick={clickToCollapseAll}>
+        </lightning-button>
+      </div>
+
+      <div class="slds-m-bottom_small">
+        <lightning-button label="Expand All" onclick={clickToExpandAll}>
+        </lightning-button>
+      </div>
+      <lightning-tree-grid
+        columns={gridColumns}
+        data={gridData}
+        key-field="RoleName"
+      ></lightning-tree-grid>
     </div>
   </div>
 </template>

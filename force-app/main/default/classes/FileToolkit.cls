@@ -2,7 +2,7 @@
  * @description       :
  * @author            : kushalbasu2@gmail.com
  * @group             :
- * @last modified on  : 01-11-2023
+ * @last modified on  : 01-23-2023
  * @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
  **/
 public abstract class FileToolkit {
@@ -12,7 +12,7 @@ public abstract class FileToolkit {
   protected Document docFile;
   protected FileToolkit() {
     userRoleMap = new Map<Id, UserRole>(
-      [SELECT id, DeveloperName, ParentRoleId FROM UserRole]
+      [SELECT id, DeveloperName, Name, ParentRoleId FROM UserRole]
     );
     userParentChildRoleMap = new Map<Id, List<Id>>();
     for (UserRole usrRlObj : userRoleMap.values()) {

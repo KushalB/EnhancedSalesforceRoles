@@ -1,13 +1,30 @@
 import { LightningElement } from "lwc";
+import LightningAlert from "lightning/alert";
 import getText from "@salesforce/apex/UserRoleExportHelper.lwcControllertoExportasText";
 import sendEmail from "@salesforce/apex/UserRoleExportHelper.lwcControllertoExportasEmail";
+import getJson from "@salesforce/apex/UserRoleExportHelper.getJsonForTree";
 
 export const KEYFIELD = "RoleName";
 
 export default class ViewAndExportRoles extends LightningElement {
   text = "";
   isXml = true;
-  //gridData="";
+  gridData = "";
+  connectedCallback() {
+    getJson()
+      .then((result) => {
+        this.text = result;
+        this.gridData = JSON.parse(this.text);
+      })
+      .catch((error) => {
+        this.text = error;
+        LightningAlert.open({
+          message: this.text,
+          theme: "error",
+          label: "Error!" // this is the header text
+        });
+      });
+  }
   get options() {
     return [
       { label: "XML", value: "XML" },
@@ -26,19 +43,38 @@ export default class ViewAndExportRoles extends LightningElement {
     getText({ isXml: this.isXml })
       .then((result) => {
         this.text = result;
-        // this.gridData = result;
+        LightningAlert.open({
+          message: "Success",
+          theme: "success",
+          label: "Success!" // this is the header text
+        });
       })
       .catch((error) => {
         this.text = error;
+        LightningAlert.open({
+          message: this.text,
+          theme: "error",
+          label: "Error!" // this is the header text
+        });
       });
   }
   handleClickonSend() {
     sendEmail({ isXml: this.isXml })
       .then((result) => {
         this.text = result;
+        LightningAlert.open({
+          message: "File sent to user email successfully!",
+          theme: "success",
+          label: "Success!" // this is the header text
+        });
       })
       .catch((error) => {
         this.text = error;
+        LightningAlert.open({
+          message: this.text,
+          theme: "error",
+          label: "Error!" // this is the header text
+        });
       });
   }
   handleClickonClear() {
@@ -67,7 +103,4 @@ export default class ViewAndExportRoles extends LightningElement {
       initialWidth: 300
     }
   ];
-  gridData = JSON.parse(
-    '[{"RoleName":"CEO","RoleLabel":"CEO","roleId":"00E7F000001YhbCUAS","_children":[{"RoleName":"CFO","RoleLabel":"CFO","roleId":"00E7F000001YhbJUAS","_children":[]},{"RoleName":"COO","RoleLabel":"COO","roleId":"00E7F000001YhbTUAS","_children":[]},{"RoleName":"SVPCustomerServiceSupport","RoleLabel":"SVP, Customer Service & Support","roleId":"00E7F000001YhbHUAS","_children":[{"RoleName":"CustomerSupportInternational","RoleLabel":"Customer Support, International","roleId":"00E7F000001YhbQUAS","_children":[]},{"RoleName":"CustomerSupportNorthAmerica","RoleLabel":"Customer Support, North America","roleId":"00E7F000001YhbLUAS","_children":[]},{"RoleName":"InstallationRepairServices","RoleLabel":"Installation & Repair Services","roleId":"00E7F000001YhbOUAS","_children":[]}]},{"RoleName":"SVPHumanResources","RoleLabel":"SVP, Human Resources","roleId":"00E7F000001YhbSUAS","_children":[]},{"RoleName":"SVPSalesMarketing","RoleLabel":"SVP, Sales & Marketing","roleId":"00E7F000001YhbDUAS","_children":[{"RoleName":"VPInternationalSales","RoleLabel":"VP, International Sales","roleId":"00E7F000001YhbRUAS","_children":[]},{"RoleName":"VPMarketing","RoleLabel":"VP, Marketing","roleId":"00E7F000001YhbGUAS","_children":[{"RoleName":"MarketingTeam","RoleLabel":"Marketing Team","roleId":"00E7F000001YhbNUAS","_children":[]}]},{"RoleName":"VPNorthAmericanSales","RoleLabel":"VP, North American Sales","roleId":"00E7F000001YhbEUAS","_children":[{"RoleName":"DirectorChannelSales","RoleLabel":"Director, Channel Sales","roleId":"00E7F000001YhbIUAS","_children":[{"RoleName":"ChannelSalesTeam","RoleLabel":"Channel Sales Team","roleId":"00E7F000001YhbMUAS","_children":[]}]},{"RoleName":"DirectorDirectSales","RoleLabel":"Director, Direct Sales","roleId":"00E7F000001YhbFUAS","_children":[{"RoleName":"EasternSalesTeam","RoleLabel":"Eastern Sales Team","roleId":"00E7F000001YhbPUAS","_children":[]},{"RoleName":"WesternSalesTeam","RoleLabel":"Western Sales Team","roleId":"00E7F000001YhbKUAS","_children":[]}]}]}]}]}]'
-  );
 }

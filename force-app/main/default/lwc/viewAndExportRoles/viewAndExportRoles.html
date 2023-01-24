@@ -2,75 +2,59 @@
   @description       : 
   @author            : ChangeMeIn@UserSettingsUnder.SFDoc
   @group             : 
-  @last modified on  : 01-23-2023
+  @last modified on  : 01-25-2023
   @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
 -->
 <template>
-  <div class="slds-box slds-theme_shade" align="center">
-    <lightning-badge
-      label="Work in Progress"
-      icon-name="utility:warning"
-    ></lightning-badge>
-    <div id="view" style="width: 45%">
-      <lightning-textarea
-        placeholder="If you click on scan and show, it will show up here."
-        name="input4"
-        readonly
-        value={text}
-        label=""
-        style="--sds-c-textarea-sizing-min-height: 200px"
-      ></lightning-textarea>
-    </div>
-    <div id="controller" style="width: 25%">
-      <lightning-combobox
-        name="outputType"
-        label=""
-        value=""
-        placeholder="Select Output Type"
-        options={options}
-        onchange={optionSelectionHandler}
-        required
-      ></lightning-combobox>
-      <br />
-      <lightning-button
-        variant="brand"
-        label="Scan and Show"
-        title="Primary action"
-        onclick={handleClickonShow}
-        class="slds-m-left_x-small"
-      ></lightning-button>
-
-      <lightning-button
-        variant="brand"
-        label="Scan and Email"
-        title="Primary action"
-        onclick={handleClickonSend}
-        class="slds-m-left_x-small"
-      ></lightning-button>
-
-      <lightning-button
-        variant="brand"
-        label="Clear"
-        title="Primary action"
-        onclick={handleClickonClear}
-        class="slds-m-left_x-small"
-      ></lightning-button>
-    </div>
+  <div class="slds-box slds-theme_shade">
     <div class="slds-p-around_medium lgc-bg">
-      <div class="slds-m-bottom_small">
-        <lightning-button label="Collapse All" onclick={clickToCollapseAll}>
-        </lightning-button>
-      </div>
+      <lightning-layout>
+        <lightning-layout-item padding="around-medium">
+          <lightning-button
+            label="Collapse All"
+            variant="brand"
+            onclick={clickToCollapseAll}
+          >
+          </lightning-button>
+        </lightning-layout-item>
 
-      <div class="slds-m-bottom_small">
-        <lightning-button label="Expand All" onclick={clickToExpandAll}>
-        </lightning-button>
+        <lightning-layout-item padding="around-medium">
+          <lightning-button
+            label="Expand All"
+            variant="brand"
+            onclick={clickToExpandAll}
+          >
+          </lightning-button>
+        </lightning-layout-item>
+
+        <lightning-layout-item padding="horizontal-medium">
+          <lightning-combobox
+            name="outputType"
+            value="JSON"
+            placeholder="Select Output Type"
+            options={options}
+            onchange={optionSelectionHandler}
+          ></lightning-combobox>
+        </lightning-layout-item>
+
+        <lightning-layout-item padding="around-medium">
+          <lightning-button
+            label="Export To Email"
+            variant="brand"
+            onclick={handleClickonSend}
+          >
+          </lightning-button>
+        </lightning-layout-item>
+      </lightning-layout>
+      <div class="slds-p-around_medium lgc-bg">
+        <lightning-tree-grid
+          columns={gridColumns}
+          data={gridData}
+          key-field="RoleName"
+          hide-checkbox-column
+          show-row-number-column
+        ></lightning-tree-grid>
       </div>
-      <lightning-tree-grid
-        columns={gridColumns}
-        data={gridData}
-        key-field="RoleName"
-      ></lightning-tree-grid>
     </div>
   </div>
 </template>

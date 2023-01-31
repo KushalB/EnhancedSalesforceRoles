@@ -6,8 +6,7 @@ hack that can help in the situation
 
 ## Thus, Introducing Enhanced Salesforce Role
 
-Salesforce Enhanced Role is a lightweight tool written on Apex, that surpasses default salesforce role display page is extremely helpful in a situation where we need to quickly get a birdeye view of the Role hierarchy of an org where the number of roles configured in the org is gigantic.
-This tool creates the XML equivalent of the Role hierarchy and saves as a document in the org that can be downloaded, reviewed and analysed quite easily.
+Salesforce Enhanced Role is a lightweight tool written on Apex, that enhances the default salesforce role display page in a situation where we need to quickly get a birdeye view of the Role hierarchy of an org where the number of roles configured in the org is gigantic. This tool shows the role hierarchy along with the ability to export the roles as JSON and XML.
 
 ## Disclaimer
 

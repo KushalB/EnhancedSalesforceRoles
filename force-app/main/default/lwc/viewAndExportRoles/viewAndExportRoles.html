@@ -2,7 +2,7 @@
   @description       : 
   @author            : ChangeMeIn@UserSettingsUnder.SFDoc
   @group             : 
-  @last modified on  : 01-25-2023
+  @last modified on  : 02-01-2023
   @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
 -->
 <template>
@@ -50,9 +50,10 @@
         <lightning-tree-grid
           columns={gridColumns}
           data={gridData}
-          key-field="RoleName"
+          key-field="RoleLabel"
           hide-checkbox-column
           show-row-number-column
+          onrowaction={handleRowAction}
         ></lightning-tree-grid>
       </div>
     </div>

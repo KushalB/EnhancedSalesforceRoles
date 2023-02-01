@@ -2,7 +2,7 @@
  * @description       :
  * @author            : kushalbasu2@gmail.com
  * @group             :
- * @last modified on  : 01-23-2023
+ * @last modified on  : 02-01-2023
  * @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
  **/
 public abstract class FileToolkit {
@@ -10,6 +10,7 @@ public abstract class FileToolkit {
   protected Map<Id, List<Id>> userParentChildRoleMap;
   protected id rootRoleId;
   protected Document docFile;
+  protected Map<String, Integer> userNumPerRolesMap;
   protected FileToolkit() {
     userRoleMap = new Map<Id, UserRole>(
       [SELECT id, DeveloperName, Name, ParentRoleId FROM UserRole]
@@ -27,6 +28,18 @@ public abstract class FileToolkit {
           new List<Id>{ usrRlObj.id }
         );
       }
+    }
+    userNumPerRolesMap = new Map<String, Integer>();
+    AggregateResult[] userPerRoles = [
+      SELECT UserRole.DeveloperName, COUNT(id)
+      FROM User
+      GROUP BY UserRole.DeveloperName
+    ];
+    for (AggregateResult tempVar : userPerRoles) {
+      userNumPerRolesMap.put(
+        String.valueOf(tempVar.get('DeveloperName')),
+        Integer.valueOf(tempVar.get('expr0'))
+      );
     }
   }
   protected void setRoot(id rootId) {

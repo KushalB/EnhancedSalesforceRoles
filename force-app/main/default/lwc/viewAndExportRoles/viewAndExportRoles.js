@@ -89,10 +89,13 @@ export default class ViewAndExportRoles extends LightningElement {
     const grid = this.template.querySelector("lightning-tree-grid");
     grid.collapseAll();
   }
+  handleRowAction(event) {
+    console.log(event.detail.row);
+  }
   gridColumns = [
     {
       type: "text",
-      fieldName: "RoleName",
+      fieldName: "RoleLabel",
       label: "Role Name",
       initialWidth: 300
     },
@@ -101,6 +104,34 @@ export default class ViewAndExportRoles extends LightningElement {
       fieldName: "RoleAPIName",
       label: "Role API Name",
       initialWidth: 300
+    },
+    {
+      type: "number",
+      fieldName: "userNumbers",
+      label: "Number of Active Users On Role",
+      initialWidth: 300
+    },
+    {
+      type: "url",
+      fieldName: "roleURL",
+      label: "URL",
+      initialWidth: 300
+    },
+    {
+      type: "text",
+      fieldName: "id",
+      label: ""
+    },
+    {
+      type: "action",
+      fieldName: "actions",
+      label: "Actions",
+      typeAttributes: {
+        rowActions: [
+          { label: "Action A", name: "actionNameA" },
+          { label: "Action B", name: "actionNameB" }
+        ]
+      }
     }
   ];
 }

@@ -2,7 +2,7 @@
  * @description       :
  * @author            : ChangeMeIn@UserSettingsUnder.SFDoc
  * @group             :
- * @last modified on  : 01-23-2023
+ * @last modified on  : 02-01-2023
  * @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
  **/
 public with sharing class JSONToolkit extends FileToolkit {
@@ -15,9 +15,18 @@ public with sharing class JSONToolkit extends FileToolkit {
     if (userRoleId != null && userRoleMap.containsKey(userRoleId)) {
       UserRole role = userRoleMap.get(userRoleId);
       RolePOJO currentRole = new RolePOJO();
-      currentRole.RoleName = role.DeveloperName;
+      currentRole.RoleAPIName = role.DeveloperName;
       currentRole.RoleLabel = role.Name;
       currentRole.roleId = role.id;
+      currentRole.userNumbers = (this.userNumPerRolesMap.containsKey(
+          role.DeveloperName
+        )
+        ? this.userNumPerRolesMap.get(role.DeveloperName)
+        : 0);
+      currentRole.roleURL =
+        System.URL.getSalesforceBaseUrl().toExternalForm() +
+        '/lightning/setup/Roles/page?address=' +
+        EncodingUtil.urlEncode('/' + role.Id, 'UTF-8');
       if (parentRole != null) {
         parentRole.childRoles.add(currentRole);
       } else {
@@ -59,10 +68,11 @@ public with sharing class JSONToolkit extends FileToolkit {
     return jsonStr;
   }
   public class RolePOJO {
-    String RoleName;
+    String RoleAPIName;
     String RoleLabel;
     Integer userNumbers;
     Id roleId;
+    String roleURL;
     RolePOJO[] childRoles;
     RolePOJO() {
       childRoles = new List<RolePOJO>();

@@ -2,60 +2,120 @@
   @description       : 
   @author            : ChangeMeIn@UserSettingsUnder.SFDoc
   @group             : 
-  @last modified on  : 02-01-2023
+  @last modified on  : 02-02-2023
   @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
 -->
 <template>
-  <div class="slds-box slds-theme_shade">
-    <div class="slds-p-around_medium lgc-bg">
-      <lightning-layout>
-        <lightning-layout-item padding="around-medium">
-          <lightning-button
-            label="Collapse All"
-            variant="brand"
-            onclick={clickToCollapseAll}
-          >
-          </lightning-button>
-        </lightning-layout-item>
-
-        <lightning-layout-item padding="around-medium">
-          <lightning-button
-            label="Expand All"
-            variant="brand"
-            onclick={clickToExpandAll}
-          >
-          </lightning-button>
-        </lightning-layout-item>
-
-        <lightning-layout-item padding="horizontal-medium">
-          <lightning-combobox
-            name="outputType"
-            value="JSON"
-            placeholder="Select Output Type"
-            options={options}
-            onchange={optionSelectionHandler}
-          ></lightning-combobox>
-        </lightning-layout-item>
-
-        <lightning-layout-item padding="around-medium">
-          <lightning-button
-            label="Export To Email"
-            variant="brand"
-            onclick={handleClickonSend}
-          >
-          </lightning-button>
-        </lightning-layout-item>
-      </lightning-layout>
+  <lightning-card title="Enhanced Role" icon-name="custom:custom15">
+    <div class="slds-box slds-theme_shade">
       <div class="slds-p-around_medium lgc-bg">
-        <lightning-tree-grid
-          columns={gridColumns}
-          data={gridData}
-          key-field="RoleLabel"
-          hide-checkbox-column
-          show-row-number-column
-          onrowaction={handleRowAction}
-        ></lightning-tree-grid>
+        <lightning-layout>
+          <lightning-layout-item padding="around-medium">
+            <lightning-button
+              label="Collapse All"
+              variant="brand"
+              onclick={clickToCollapseAll}
+            >
+            </lightning-button>
+          </lightning-layout-item>
+
+          <lightning-layout-item padding="around-medium">
+            <lightning-button
+              label="Expand All"
+              variant="brand"
+              onclick={clickToExpandAll}
+            >
+            </lightning-button>
+          </lightning-layout-item>
+
+          <lightning-layout-item padding="horizontal-medium">
+            <lightning-combobox
+              name="outputType"
+              value="JSON"
+              placeholder="Select Output Type"
+              options={options}
+              onchange={optionSelectionHandler}
+            ></lightning-combobox>
+          </lightning-layout-item>
+
+          <lightning-layout-item padding="around-medium">
+            <lightning-button
+              label="Export To Email"
+              variant="brand"
+              onclick={handleClickonSend}
+            >
+            </lightning-button>
+          </lightning-layout-item>
+        </lightning-layout>
+        <lightning-card variant="Narrow">
+          <div class="slds-p-around_medium lgc-bg">
+            <lightning-tree-grid
+              columns={gridColumns}
+              data={gridData}
+              key-field="RoleLabel"
+              hide-checkbox-column
+              show-row-number-column
+              onrowaction={handleRowAction}
+            ></lightning-tree-grid>
+          </div>
+        </lightning-card>
       </div>
     </div>
-  </div>
+    <div slot="footer">
+      <lightning-button-group>
+        <lightning-button-menu
+          alternative-text="Show menu"
+          icon-name="utility:socialshare"
+          class="slds-p-right_xxx-small"
+        >
+          <a href="https://www.linkedin.com/" target="blank">
+            <lightning-button-icon
+              class="slds-p-right_xxx-small"
+              icon-name="utility:world"
+              variant="border-filled"
+              alternative-text="Share on Linkdin"
+            ></lightning-button-icon>
+          </a>
+          <a href="https://www.twitter.com/" target="blank">
+            <lightning-button-icon
+              class="slds-p-right_xxx-small"
+              icon-name="utility:retweet"
+              variant="border-filled"
+              alternative-text="Tweet"
+            ></lightning-button-icon>
+          </a>
+        </lightning-button-menu>
+        <a
+          href="https://github.com/KushalB/EnhancedSalesforceRoles"
+          target="blank"
+        >
+          <lightning-button-icon
+            class="slds-p-right_xxx-small"
+            icon-name="action:apex"
+            variant="border-filled"
+            alternative-text="See Source Code"
+          ></lightning-button-icon>
+        </a>
+        <a
+          href="https://github.com/KushalB/EnhancedSalesforceRoles/issues"
+          target="blank"
+        >
+          <lightning-button-icon
+            class="slds-p-right_xxx-small"
+            icon-name="action:bug"
+            variant="border-filled"
+            alternative-text="Raise a Bug"
+          ></lightning-button-icon>
+        </a>
+        <a href="https://www.buymeacoffee.com/kushalbasuq" target="blank">
+          <lightning-button-icon
+            class="slds-p-right_xxx-small"
+            icon-name="action:share_thanks"
+            variant="border-filled"
+            alternative-text="Buy me a Coffee"
+          ></lightning-button-icon>
+        </a>
+      </lightning-button-group>
+    </div>
+  </lightning-card>
 </template>

@@ -94,10 +94,14 @@ export default class ViewAndExportRoles extends LightningElement {
   }
   gridColumns = [
     {
-      type: "text",
-      fieldName: "RoleLabel",
-      label: "Role Name",
-      initialWidth: 300
+      type: "url",
+      fieldName: "roleURL",
+      label: "URL",
+      typeAttributes: {
+        label: { fieldName: "RoleLabel" },
+        target: "blank",
+        tooltip: "View Role"
+      }
     },
     {
       type: "text",
@@ -110,28 +114,6 @@ export default class ViewAndExportRoles extends LightningElement {
       fieldName: "userNumbers",
       label: "Number of Active Users On Role",
       initialWidth: 300
-    },
-    {
-      type: "url",
-      fieldName: "roleURL",
-      label: "URL",
-      initialWidth: 300
-    },
-    {
-      type: "text",
-      fieldName: "id",
-      label: ""
-    },
-    {
-      type: "action",
-      fieldName: "actions",
-      label: "Actions",
-      typeAttributes: {
-        rowActions: [
-          { label: "Action A", name: "actionNameA" },
-          { label: "Action B", name: "actionNameB" }
-        ]
-      }
     }
   ];
 }

@@ -12,18 +12,19 @@
         <lightning-layout>
           <lightning-layout-item padding="around-medium">
             <lightning-button
+              icon-name="utility:collapse_all"
               label="Collapse All"
               variant="brand"
               onclick={clickToCollapseAll}
+              if:true={isExpanded}
             >
             </lightning-button>
-          </lightning-layout-item>
-
-          <lightning-layout-item padding="around-medium">
             <lightning-button
+              icon-name="utility:expand_alt"
               label="Expand All"
               variant="brand"
               onclick={clickToExpandAll}
+              if:true={isCollapsed}
             >
             </lightning-button>
           </lightning-layout-item>
@@ -63,58 +64,59 @@
     </div>
     <div slot="footer">
       <lightning-button-group>
-        <lightning-button-menu
-          alternative-text="Show menu"
-          icon-name="utility:socialshare"
-          class="slds-p-right_xxx-small"
-        >
-          <a href="https://www.linkedin.com/" target="blank">
-            <lightning-button-icon
-              class="slds-p-right_xxx-small"
-              icon-name="utility:world"
-              variant="border-filled"
-              alternative-text="Share on Linkdin"
-            ></lightning-button-icon>
-          </a>
-          <a href="https://www.twitter.com/" target="blank">
-            <lightning-button-icon
-              class="slds-p-right_xxx-small"
-              icon-name="utility:retweet"
-              variant="border-filled"
-              alternative-text="Tweet"
-            ></lightning-button-icon>
-          </a>
-        </lightning-button-menu>
         <a
           href="https://github.com/KushalB/EnhancedSalesforceRoles"
-          target="blank"
+          target="_blank"
         >
           <lightning-button-icon
             class="slds-p-right_xxx-small"
             icon-name="action:apex"
-            variant="border-filled"
+            variant="brand-outline"
             alternative-text="See Source Code"
           ></lightning-button-icon>
         </a>
         <a
           href="https://github.com/KushalB/EnhancedSalesforceRoles/issues"
-          target="blank"
+          target="_blank"
         >
           <lightning-button-icon
             class="slds-p-right_xxx-small"
             icon-name="action:bug"
-            variant="border-filled"
+            variant="brand-outline"
             alternative-text="Raise a Bug"
           ></lightning-button-icon>
         </a>
-        <a href="https://www.buymeacoffee.com/kushalbasuq" target="blank">
+        <a href="https://www.buymeacoffee.com/kushalbasuq" target="_blank">
           <lightning-button-icon
             class="slds-p-right_xxx-small"
             icon-name="action:share_thanks"
-            variant="border-filled"
+            variant="brand-outline"
             alternative-text="Buy me a Coffee"
           ></lightning-button-icon>
         </a>
+        <lightning-button-menu
+          alternative-text="Show menu"
+          icon-name="utility:socialshare"
+          class="slds-p-right_xxx-small"
+          variant="brand-outline"
+        >
+          <a href="https://www.shorturl.at/nSX04" target="_blank">
+            <lightning-button-icon
+              class="slds-p-right_xxx-small"
+              icon-name="utility:world"
+              variant="brand-outline"
+              alternative-text="Share on Linkdin"
+            ></lightning-button-icon>
+          </a>
+          <a href="https://www.shorturl.at/aewN6" target="_blank">
+            <lightning-button-icon
+              class="slds-p-right_xxx-small"
+              icon-name="utility:retweet"
+              variant="brand-outline"
+              alternative-text="Tweet"
+            ></lightning-button-icon>
+          </a>
+        </lightning-button-menu>
       </lightning-button-group>
     </div>
   </lightning-card>

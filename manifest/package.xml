@@ -2,10 +2,13 @@
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
     <types>
         <members>UserRoleExportHelper</members>
+        <members>UserRoleExportHelperTest</members>
         <members>XMLToolKit</members>
         <members>EmailToolKit</members>
+        <members>EmailToolKitTest</members>
         <members>ExceptionToolKit</members>
         <members>FileToolkit</members>
+        <members>FileToolkitTest</members>
         <members>JSONToolkit</members>
         <members>RoleExtractionException</members>
         <name>ApexClass</name>

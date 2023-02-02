@@ -26,7 +26,7 @@ private class UserRoleExportHelperTest {
     );
   }
   @isTest
-  private static void testEmailExport() {
+  private static void testEmailExportAsXML() {
     // Test data setup
 
     // Actual test
@@ -36,6 +36,29 @@ private class UserRoleExportHelperTest {
 
     // Asserts
     Document[] docs = [SELECT id FROM Document WHERE name LIKE 'Roles of%'];
-    System.assertEquals(1, docs.size(), 'Role Document Not created!');
+    System.assertEquals(
+      1,
+      docs.size(),
+      'Test Role Document Not created! You need atleast one Role configured to deploy'
+    );
+  }
+  @isTest
+  private static void testEmailExportAsJson() {
+    // Test data setup
+
+    // Actual test
+    Test.startTest();
+    UserRoleExportHelper.lwcControllertoExportasEmail(false);
+    RoleExtractionException ex = new RoleExtractionException();
+    String errMsg = ex.getExceptionErrorMessage();
+    Test.stopTest();
+
+    // Asserts
+    Document[] docs = [SELECT id FROM Document WHERE name LIKE 'Roles of%'];
+    System.assertEquals(
+      1,
+      docs.size(),
+      'Test Role Document Not created! You need atleast one Role configured to deploy'
+    );
   }
 }

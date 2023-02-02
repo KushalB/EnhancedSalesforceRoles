@@ -2,8 +2,11 @@
  * @description       :
  * @author            : kushalbasu2@gmail.com
  * @group             :
- * @last modified on  : 01-08-2023
- * @last modified by  : kushalbasu2@gmail.com
+ * @last modified on  : 02-02-2023
+ * @last modified by  : github.com/kushalb
  **/
 public class RoleExtractionException extends Exception {
+  public String getExceptionErrorMessage() {
+    return this.getMessage() + '\n' + this.getStackTraceString();
+  }
 }

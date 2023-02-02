@@ -11,7 +11,7 @@
         <name>ApexClass</name>
     </types>
     <types>
-        <members>unfiled$public/EnhancedEmailRole_Success</members>
+        <members>EnhancedSalesforceRole/EnhancedEmailRole_Success</members>
         <name>EmailTemplate</name>
     </types>
     <types>
@@ -21,5 +21,9 @@
     <types>
         <members>Enhanced_Roles</members>
         <name>CustomTab</name>
+    </types>
+    <types>
+        <members>Enhanced_Roles</members>
+        <name>CustomApplication</name>
     </types>
 </Package>

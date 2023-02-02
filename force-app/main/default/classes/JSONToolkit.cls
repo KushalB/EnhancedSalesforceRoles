@@ -1,9 +1,9 @@
 /**
- * @description       :
- * @author            : ChangeMeIn@UserSettingsUnder.SFDoc
- * @group             :
- * @last modified on  : 02-01-2023
- * @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+ * @description       : Class to generate JSON File
+ * @author            : github.com/kushalb
+ * @group             : Utility
+ * @last modified on  : 02-02-2023
+ * @last modified by  : github.com/kushalb
  **/
 public with sharing class JSONToolkit extends FileToolkit {
   RolePOJO rootRole;

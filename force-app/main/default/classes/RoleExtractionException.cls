@@ -1,7 +1,7 @@
 /**
- * @description       :
- * @author            : kushalbasu2@gmail.com
- * @group             :
+ * @description       : Custom Exception Class
+ * @author            : github.com/kushalb
+ * @group             : Exception Handler
  * @last modified on  : 02-02-2023
  * @last modified by  : github.com/kushalb
  **/

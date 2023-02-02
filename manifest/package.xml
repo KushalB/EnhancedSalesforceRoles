@@ -11,8 +11,13 @@
         <name>ApexClass</name>
     </types>
     <types>
+        <members>EnhancedSalesforceRole</members>
         <members>EnhancedSalesforceRole/EnhancedEmailRole_Success</members>
         <name>EmailTemplate</name>
+    </types>
+    <types>
+        <members>Enhanced_Roles_UtilityBar</members>
+        <name>FlexiPage</name>
     </types>
     <types>
         <members>viewAndExportRoles</members>

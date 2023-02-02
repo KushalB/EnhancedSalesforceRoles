@@ -2,9 +2,9 @@
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
     <types>
         <members>UserRoleExportHelper</members>
+        <members>UserRoleExportHelperTest</members>
         <members>XMLToolKit</members>
         <members>EmailToolKit</members>
-        <members>ExceptionToolKit</members>
         <members>FileToolkit</members>
         <members>JSONToolkit</members>
         <members>RoleExtractionException</members>

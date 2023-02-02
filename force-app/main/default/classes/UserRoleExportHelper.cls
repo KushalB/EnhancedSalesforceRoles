@@ -2,8 +2,8 @@
  * @description       :
  * @author            : kushal.basu@salesforce.com
  * @group             :
- * @last modified on  : 01-24-2023
- * @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+ * @last modified on  : 02-02-2023
+ * @last modified by  : github.com/kushalb
  **/
 public with sharing class UserRoleExportHelper {
   public enum ExportType {
@@ -23,16 +23,6 @@ public with sharing class UserRoleExportHelper {
     return toolKit;
   }
 
-  @AuraEnabled
-  public static string lwcControllertoExportasText(boolean isXml) {
-    try {
-      ExportType type = (isXml ? ExportType.XML : ExportType.JSON);
-      FileToolkit toolkitObj = getToolKitInstance(type);
-      return toolkitObj.genDocBody();
-    } catch (Exception e) {
-      throw new AuraHandledException(e.getMessage());
-    }
-  }
   @AuraEnabled
   public static string getJsonForTree() {
     try {

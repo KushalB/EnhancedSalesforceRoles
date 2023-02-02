@@ -1,6 +1,5 @@
 import { LightningElement } from "lwc";
 import LightningAlert from "lightning/alert";
-import getText from "@salesforce/apex/UserRoleExportHelper.lwcControllertoExportasText";
 import sendEmail from "@salesforce/apex/UserRoleExportHelper.lwcControllertoExportasEmail";
 import getJson from "@salesforce/apex/UserRoleExportHelper.getJsonForTree";
 
@@ -40,25 +39,6 @@ export default class ViewAndExportRoles extends LightningElement {
     } else {
       this.isXml = false;
     }
-  }
-  handleClickonShow() {
-    getText({ isXml: this.isXml })
-      .then((result) => {
-        this.text = result;
-        LightningAlert.open({
-          message: "Success",
-          theme: "success",
-          label: "Success!" // this is the header text
-        });
-      })
-      .catch((error) => {
-        this.text = error;
-        LightningAlert.open({
-          message: this.text,
-          theme: "error",
-          label: "Error!" // this is the header text
-        });
-      });
   }
   handleClickonSend() {
     sendEmail({ isXml: this.isXml })

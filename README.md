@@ -1,26 +1,31 @@
 # Enhanced Salesforce Roles
 
-For large organisation where there are more than 1000 user roles configured, it is quite painfull as a Saleforce developer or admin to get a holistic view of the Role Heirarchy easily.
-Since the expand all feature doesn't work for orgs having more than 1000 roles, we have to select and expand each roles one by one. There is no out of the box feature or readily available
-hack that can help in the situation
+Large Salesforce Projects that consist of a lot of user roles configured, it is quite difficult as a Saleforce developer or an Admin to use the default salesforce role interface to get a holistic view.
 
-## Thus, Introducing Enhanced Salesforce Role
+Since the expand all feature doesn't work for orgs having more than 1000 roles, we have to select and expand each roles one by one and there is no out of the box feature or readily available hack that can help in the situation
 
-Salesforce Enhanced Role is a lightweight tool written on Apex, that enhances the default salesforce role display page in a situation where we need to quickly get a birdeye view of the Role hierarchy of an org where the number of roles configured in the org is gigantic. This tool shows the role hierarchy along with the ability to export the roles as JSON and XML.
+So this app is for devs and admins who are dealing with this issue and looking for a quick fix.
 
-## Quickstart
+## Demo
 
-- To use this app you have to install the unmanaged package.
-- Once the package is installed in your org, you can simply open the "Enhanced Role" lightning app on your org.
-- That's it!
+![](https://media.giphy.com/media/jtCVr31QrPHGbPosXt/giphy.gif)
+
+## Features
+
+- Expand All
+- Collapse All
+- Export as XML
+- Export as JSON
+- Number of Users per Role
 
 ## Installation
 
-<a href="https://login.salesforce.com/packaging/installPackage.apexp?p0=04t7F000005dEcU" target="_blank">
-  <img alt="Deploy to Production"
-       src="https://raw.githubusercontent.com/afawcett/githubsfdeploy/master/deploy.png"> <br> Production <br>
-</a>
-<a href="https://test.salesforce.com/packaging/installPackage.apexp?p0=04t7F000005dEcU" target="_blank">
-  <img alt="Deploy to Production"
-       src="https://raw.githubusercontent.com/afawcett/githubsfdeploy/master/deploy.png"> <br> Sandbox
-</a>
+This is an unmanaged package that you can directly install in your salesforce org.
+
+- [Install in Production or Developer Edition Orgs](https://login.salesforce.com/packaging/installPackage.apexp?p0=04t7F000005dEcU)
+
+- [Install in Sandbox Orgs](https://test.salesforce.com/packaging/installPackage.apexp?p0=04t7F000005dEcU)
+
+## License
+
+[MIT](https://github.com/KushalB/EnhancedSalesforceRoles/blob/master/LICENSE)

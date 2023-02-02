@@ -8,18 +8,13 @@ hack that can help in the situation
 
 Salesforce Enhanced Role is a lightweight tool written on Apex, that enhances the default salesforce role display page in a situation where we need to quickly get a birdeye view of the Role hierarchy of an org where the number of roles configured in the org is gigantic. This tool shows the role hierarchy along with the ability to export the roles as JSON and XML.
 
-## Disclaimer
-
-- The Salesforce Enhanced Role tool comes with a single Apex class consisting several helper functions.
-- Each of the functions are self explanatory along with additional comments.
-- I will encourage you to review the code so that you feel confident on whether this will mess anything up on the org that you're going to use it.
-
 ## Quickstart
 
-- Once the code is deployed to your org, you can simply invoke the entry function
-  by calling UserRoleExportHelper.run() function. The snippet can be found [here](https://github.com/KushalB/EnhancedSalesforceRoles/blob/master/scripts/apex/runRoleManager.apex)
+- To use this app you have to install the unmanaged package.
+- Once the package is installed in your org, you can simply open the "Enhanced Role" lightning app on your org.
+- That's it!
 
-## How to install
+## Installation
 
 <a href="https://login.salesforce.com/packaging/installPackage.apexp?p0=04t7F000005dEcU" target="_blank">
   <img alt="Deploy to Production"

@@ -10,6 +10,8 @@ export default class ViewAndExportRoles extends LightningElement {
   text = "";
   isXml = true;
   gridData = "";
+  isExpanded = false;
+  isCollapsed = true;
   connectedCallback() {
     getJson()
       .then((result) => {
@@ -81,11 +83,15 @@ export default class ViewAndExportRoles extends LightningElement {
     this.text = "";
   }
   clickToExpandAll() {
+    this.isExpanded = true;
+    this.isCollapsed = false;
     const grid = this.template.querySelector("lightning-tree-grid");
     grid.expandAll();
   }
 
   clickToCollapseAll() {
+    this.isCollapsed = true;
+    this.isExpanded = false;
     const grid = this.template.querySelector("lightning-tree-grid");
     grid.collapseAll();
   }

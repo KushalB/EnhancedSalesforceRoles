@@ -1,14 +1,14 @@
 /**
- * @description       :
- * @author            : kushalbasu2@gmail.com
- * @group             :
- * @last modified on  : 01-09-2023
- * @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+ * @description       : This is a Helper class to formulate Email Body and Send Email
+ * @author            : github.com/kushalb
+ * @group             : Utility
+ * @last modified on  : 02-02-2023
+ * @last modified by  : github.com/kushalb
  **/
 public class EmailToolKit {
   static final string userfirstname = UserInfo.getFirstName();
   static final string useremail = UserInfo.getUserEmail();
-  static final String repoUrl = 'https://github.com/KushalB/EnhancedSalesforceRoles';
+  static final String repoUrl = 'shorturl.at/aLT03';
 
   public static String addMergeFieldInfo(
     String emailBody,

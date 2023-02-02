@@ -1,9 +1,9 @@
 /**
- * @description       :
- * @author            : kushalbasu2@gmail.com
- * @group             :
- * @last modified on  : 02-01-2023
- * @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+ * @description       : This is an abstract class to create Files
+ * @author            : github.com/kushalb
+ * @group             : Utility
+ * @last modified on  : 02-02-2023
+ * @last modified by  : github.com/kushalb
  **/
 public abstract class FileToolkit {
   protected Map<Id, UserRole> userRoleMap;

@@ -5,7 +5,6 @@
         <members>UserRoleExportHelperTest</members>
         <members>XMLToolKit</members>
         <members>EmailToolKit</members>
-        <members>EmailToolKitTest</members>
         <members>ExceptionToolKit</members>
         <members>FileToolkit</members>
         <members>FileToolkitTest</members>

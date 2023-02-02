@@ -31,4 +31,8 @@
         <members>Enhanced_Roles</members>
         <name>CustomApplication</name>
     </types>
+    <types>
+        <members>users_icon</members>
+        <name>ContentAsset</name>
+    </types>
 </Package>

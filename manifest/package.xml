@@ -11,7 +11,7 @@
         <name>ApexClass</name>
     </types>
     <types>
-        <members>unfiled$public/EnhancedEmailRole_Success</members>
+        <members>EnhancedSalesforceRole/EnhancedEmailRole_Success</members>
         <name>EmailTemplate</name>
     </types>
     <types>

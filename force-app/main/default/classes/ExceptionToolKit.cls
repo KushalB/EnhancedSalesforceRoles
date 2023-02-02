@@ -1,11 +1,11 @@
 /**
- * @description       : 
+ * @description       :
  * @author            : kushalbasu2@gmail.com
- * @group             : 
+ * @group             :
  * @last modified on  : 01-08-2023
  * @last modified by  : kushalbasu2@gmail.com
-**/
+ **/
 public interface ExceptionToolKit {
-    void printExceptionInLog();
-    void sendExceptionEmail();
+  void printExceptionInLog();
+  void sendExceptionEmail();
 }

@@ -5,9 +5,7 @@
         <members>UserRoleExportHelperTest</members>
         <members>XMLToolKit</members>
         <members>EmailToolKit</members>
-        <members>ExceptionToolKit</members>
         <members>FileToolkit</members>
-        <members>FileToolkitTest</members>
         <members>JSONToolkit</members>
         <members>RoleExtractionException</members>
         <name>ApexClass</name>

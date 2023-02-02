@@ -22,9 +22,9 @@ So this app is for devs and admins who are dealing with this issue and looking f
 
 This is an unmanaged package that you can directly install in your salesforce org.
 
-- [Install in Production or Developer Edition Orgs](https://login.salesforce.com/packaging/installPackage.apexp?p0=04t7F000005dEcU)
+- [Install in Production or Developer Edition Orgs](https://login.salesforce.com/packaging/installPackage.apexp?p0=04t7F000005dEcZ)
 
-- [Install in Sandbox Orgs](https://test.salesforce.com/packaging/installPackage.apexp?p0=04t7F000005dEcU)
+- [Install in Sandbox Orgs](https://test.salesforce.com/packaging/installPackage.apexp?p0=04t7F000005dEcZ)
 
 ## License
 

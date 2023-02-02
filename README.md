@@ -23,9 +23,9 @@ Salesforce Enhanced Role is a lightweight tool written on Apex, that enhances th
 
 <a href="https://login.salesforce.com/packaging/installPackage.apexp?p0=04t7F000005dEcU" target="_blank">
   <img alt="Deploy to Production"
-       src="https://raw.githubusercontent.com/afawcett/githubsfdeploy/master/deploy.png"> Production
+       src="https://raw.githubusercontent.com/afawcett/githubsfdeploy/master/deploy.png"> <br> Production
 </a>
 <a href="https://test.salesforce.com/packaging/installPackage.apexp?p0=04t7F000005dEcU" target="_blank">
   <img alt="Deploy to Production"
-       src="https://raw.githubusercontent.com/afawcett/githubsfdeploy/master/deploy.png"> Sandbox
+       src="https://raw.githubusercontent.com/afawcett/githubsfdeploy/master/deploy.png"> <br> Sandbox
 </a>

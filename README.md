@@ -32,8 +32,6 @@ This is an unmanaged package that you can directly install in your salesforce or
 
 Give it a try and simplify your role management in Salesforce! If you have any questions or feedback, feel free to reach out. Happy role managing! 😊
 
-#Salesforce #RoleManagement #EnhancedRoles #App #OpenSource
-=======
 ## License
 
 [MIT](https://github.com/KushalB/EnhancedSalesforceRoles/blob/master/LICENSE)

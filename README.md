@@ -15,8 +15,14 @@ Enhanced Salesforce Role is a lightweight tool developed in Apex that enhances t
 Once the code is deployed to your org, you can easily invoke the entry function by calling the UserRoleExportHelper.run() function. You can find the code snippet here.
 # ⚙️ How to Install
 
-    🚀 [Deploy to Production]
-    🧪 [Deploy to Sandbox]
+    🚀 <a href="https://login.salesforce.com/packaging/installPackage.apexp?p0=04t7F000005dEcU" target="_blank">
+        <img alt="Deploy to Production"
+        src="https://raw.githubusercontent.com/afawcett/githubsfdeploy/master/deploy.png"> <br> Production <br>
+      </a>
+    🧪 <a href="https://test.salesforce.com/packaging/installPackage.apexp?p0=04t7F000005dEcU" target="_blank">
+        <img alt="Deploy to Production"
+            src="https://raw.githubusercontent.com/afawcett/githubsfdeploy/master/deploy.png"> <br> Sandbox
+      </a>
 
 Please note that thorough testing and review of the code are recommended before installation to ensure compatibility and prevent any unintended impact on your Salesforce org.
 

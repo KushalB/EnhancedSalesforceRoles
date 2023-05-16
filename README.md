@@ -1,31 +1,23 @@
-# Enhanced Salesforce Roles
+# 🌟 Enhanced Salesforce Roles
 
-For large organisation where there are more than 1000 user roles configured, it is quite painfull as a Saleforce developer or admin to get a holistic view of the Role Heirarchy easily.
-Since the expand all feature doesn't work for orgs having more than 1000 roles, we have to select and expand each roles one by one. There is no out of the box feature or readily available
-hack that can help in the situation
+Managing a large number of user roles in Salesforce can be a challenging task, especially in organizations with more than 1000 roles. As a Salesforce developer or admin, getting a holistic view of the role hierarchy becomes cumbersome. The default "expand all" feature is ineffective for orgs with a significant number of roles, requiring manual expansion of each role individually. Unfortunately, there is no out-of-the-box solution or readily available workaround to address this issue.
+💡 Introducing Enhanced Salesforce Role
 
-## Thus, Introducing Enhanced Salesforce Role
+Enhanced Salesforce Role is a lightweight tool developed in Apex that enhances the default Salesforce role display page. It provides a quick bird's eye view of the role hierarchy in organizations where the number of configured roles is enormous. This tool not only presents the role hierarchy but also allows you to export the roles as JSON and XML formats.
+# ⚠️ Disclaimer
 
-Salesforce Enhanced Role is a lightweight tool written on Apex, that enhances the default salesforce role display page in a situation where we need to quickly get a birdeye view of the Role hierarchy of an org where the number of roles configured in the org is gigantic. This tool shows the role hierarchy along with the ability to export the roles as JSON and XML.
+    The Salesforce Enhanced Role tool consists of a single Apex class containing several helper functions.
+    Each function is self-explanatory and includes additional comments.
+    We encourage you to review the code thoroughly to ensure confidence in its impact on your org.
 
-## Disclaimer
+# 🚀 Quickstart
 
-- The Salesforce Enhanced Role tool comes with a single Apex class consisting several helper functions.
-- Each of the functions are self explanatory along with additional comments.
-- I will encourage you to review the code so that you feel confident on whether this will mess anything up on the org that you're going to use it.
+Once the code is deployed to your org, you can easily invoke the entry function by calling the UserRoleExportHelper.run() function. You can find the code snippet here.
+# ⚙️ How to Install
 
-## Quickstart
+    🚀 [Deploy to Production]
+    🧪 [Deploy to Sandbox]
 
-- Once the code is deployed to your org, you can simply invoke the entry function
-  by calling UserRoleExportHelper.run() function. The snippet can be found [here](https://github.com/KushalB/EnhancedSalesforceRoles/blob/master/scripts/apex/runRoleManager.apex)
+Please note that thorough testing and review of the code are recommended before installation to ensure compatibility and prevent any unintended impact on your Salesforce org.
 
-## How to install
-
-<a href="https://login.salesforce.com/packaging/installPackage.apexp?p0=04t7F000005dEcU" target="_blank">
-  <img alt="Deploy to Production"
-       src="https://raw.githubusercontent.com/afawcett/githubsfdeploy/master/deploy.png"> <br> Production <br>
-</a>
-<a href="https://test.salesforce.com/packaging/installPackage.apexp?p0=04t7F000005dEcU" target="_blank">
-  <img alt="Deploy to Production"
-       src="https://raw.githubusercontent.com/afawcett/githubsfdeploy/master/deploy.png"> <br> Sandbox
-</a>
+We hope that Enhanced Salesforce Roles simplifies and improves your role management experience. If you have any questions, feedback, or suggestions, please don't hesitate to reach out. Happy role managing! 🎉

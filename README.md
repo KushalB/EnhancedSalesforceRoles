@@ -1,31 +1,35 @@
-# Enhanced Salesforce Roles
+# 🌟 Enhanced Salesforce Roles
 
-For large organisation where there are more than 1000 user roles configured, it is quite painfull as a Saleforce developer or admin to get a holistic view of the Role Heirarchy easily.
-Since the expand all feature doesn't work for orgs having more than 1000 roles, we have to select and expand each roles one by one. There is no out of the box feature or readily available
-hack that can help in the situation
+Large Salesforce projects that consist of a lot of user roles configured can be quite challenging for Salesforce developers and admins who need a holistic view using the default Salesforce role interface.
 
-## Thus, Introducing Enhanced Salesforce Role
+Since the "expand all" feature doesn't work for orgs with more than 1000 roles, manually selecting and expanding each role one by one becomes a tedious process. 😓 Unfortunately, there is no out-of-the-box feature or readily available hack to address this situation.
 
-Salesforce Enhanced Role is a lightweight tool written on Apex, that enhances the default salesforce role display page in a situation where we need to quickly get a birdeye view of the Role hierarchy of an org where the number of roles configured in the org is gigantic. This tool shows the role hierarchy along with the ability to export the roles as JSON and XML.
+Introducing this app! 🚀 It's designed to provide a quick fix for developers and admins dealing with this issue. 
 
-## Disclaimer
+## 🎥 Demo
 
-- The Salesforce Enhanced Role tool comes with a single Apex class consisting several helper functions.
-- Each of the functions are self explanatory along with additional comments.
-- I will encourage you to review the code so that you feel confident on whether this will mess anything up on the org that you're going to use it.
+![Demo](https://media.giphy.com/media/jtCVr31QrPHGbPosXt/giphy.gif)
 
-## Quickstart
+## ✨ Features
 
-- Once the code is deployed to your org, you can simply invoke the entry function
-  by calling UserRoleExportHelper.run() function. The snippet can be found [here](https://github.com/KushalB/EnhancedSalesforceRoles/blob/master/scripts/apex/runRoleManager.apex)
+- Expand All ✨
+- Collapse All 📉
+- Export as XML 📂
+- Export as JSON 📋
+- Number of Users per Role 🧑‍🤝‍🧑
 
-## How to install
+## 🔧 Installation
 
-<a href="https://login.salesforce.com/packaging/installPackage.apexp?p0=04t7F000005dEcU" target="_blank">
-  <img alt="Deploy to Production"
-       src="https://raw.githubusercontent.com/afawcett/githubsfdeploy/master/deploy.png"> <br> Production <br>
-</a>
-<a href="https://test.salesforce.com/packaging/installPackage.apexp?p0=04t7F000005dEcU" target="_blank">
-  <img alt="Deploy to Production"
-       src="https://raw.githubusercontent.com/afawcett/githubsfdeploy/master/deploy.png"> <br> Sandbox
-</a>
+This is an unmanaged package that you can directly install in your Salesforce org.
+
+- [Install in Production or Developer Edition Orgs](https://login.salesforce.com/packaging/installPackage.apexp?p0=04t7F000005dEcZ)
+
+- [Install in Sandbox Orgs](https://test.salesforce.com/packaging/installPackage.apexp?p0=04t7F000005dEcZ)
+
+## 📄 License
+
+[MIT](https://github.com/KushalB/EnhancedSalesforceRoles/blob/master/LICENSE)
+
+Give it a try and simplify your role management in Salesforce! If you have any questions or feedback, feel free to reach out. Happy role managing! 😊
+
+#Salesforce #RoleManagement #EnhancedRoles #App #OpenSource

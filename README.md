@@ -20,7 +20,7 @@ Introducing this app! 🚀 It's designed to provide a quick fix for developers a
 
 ## 🔧 Installation
 
-This is an unmanaged package that you can directly install in your Salesforce org.
+This is an unmanaged package that you can directly install in your salesforce org.
 
 - [Install in Production or Developer Edition Orgs](https://login.salesforce.com/packaging/installPackage.apexp?p0=04t7F000005dEcZ)
 
@@ -32,4 +32,6 @@ This is an unmanaged package that you can directly install in your Salesforce or
 
 Give it a try and simplify your role management in Salesforce! If you have any questions or feedback, feel free to reach out. Happy role managing! 😊
 
-#Salesforce #RoleManagement #EnhancedRoles #App #OpenSource
+## License
+
+[MIT](https://github.com/KushalB/EnhancedSalesforceRoles/blob/master/LICENSE)
